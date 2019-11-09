@@ -157,8 +157,11 @@ public:
             Worker() : BasicApp(1) {}
         };
         Worker w;
+        test::StreamSink sink {beast::severities::kDisabled};
+        beast::Journal j {sink};
+        auto tk = make_TimeKeeper(j);
         using namespace std::chrono_literals;
-        NetClock::time_point const expiration{3600s};
+        NetClock::time_point const expiration{tk->now() + 24*1h};
         TrustedPublisherServer server{
             w.get_io_service(),
             validators,

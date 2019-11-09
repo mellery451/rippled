@@ -142,12 +142,12 @@ public:
         bool useSSL = false,
         int version = 1,
         bool immediateStart = true,
-        int sequence = 1)
+        int sequence = 1,
+        unsigned short port = 0) // 0 means let OS pick the port based on what's available
         : sock_{ioc}
         , ep_{beast::IP::Address::from_string(
                 ripple::test::getEnvLocalhostAddr()),
-            // 0 means let OS pick the port based on what's available
-            0}
+              port}
         , acceptor_{ioc}
         , useSSL_{useSSL}
         , publisherSecret_{randomSecretKey()}

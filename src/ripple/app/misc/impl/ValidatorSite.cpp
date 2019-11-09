@@ -33,6 +33,7 @@
 namespace ripple {
 
 auto           constexpr default_refresh_interval = std::chrono::minutes{5};
+auto           constexpr fast_refresh_interval    = std::chrono::minutes{1};
 auto           constexpr error_retry_interval     = std::chrono::seconds{30};
 unsigned short constexpr max_redirects            = 3;
 
@@ -376,7 +377,7 @@ ValidatorSite::parseJsonResponse (
         throw std::runtime_error{"missing fields"};
     }
 
-    auto const disp = app_.validators().applyList (
+    auto const [disp, pk] = app_.validators().applyList (
         body["manifest"].asString (),
         body["blob"].asString (),
         body["signature"].asString(),
@@ -427,19 +428,57 @@ ValidatorSite::parseJsonResponse (
         BOOST_ASSERT(false);
     }
 
-    if (body.isMember ("refresh_interval") &&
-        body["refresh_interval"].isNumeric ())
+    using namespace std::chrono_literals;
+    bool new_refresh = false;
+    auto update_refresh =
+        [this](size_t idx, std::chrono::minutes new_val)->bool
+        {
+            if (sites_[idx].refreshInterval != new_val)
+            {
+                sites_[idx].refreshInterval = new_val;
+                return true;
+            }
+
+            return false;
+        };
+
+    // first check near-expiration window and reduce refresh interval
+    // accordingly
+    if (! pk.empty())
     {
-        using namespace std::chrono_literals;
-        std::chrono::minutes const refresh =
-            boost::algorithm::clamp(
-                std::chrono::minutes {body["refresh_interval"].asUInt ()},
-                1min,
-                24h);
-        sites_[siteIdx].refreshInterval = refresh;
+        auto expiration = app_.validators().expiration(pk);
+        new_refresh = update_refresh(
+            siteIdx,
+            (expiration && (*expiration - app_.timeKeeper().now()) < 8h)
+                ? fast_refresh_interval
+                : default_refresh_interval);
+    }
+
+    // next allow publisher to override the refresh interval, within
+    // reasonable bounds, but only if we didn't override already for near
+    // expiration
+    //
+    // TODO: should we consider *only* honoring this field when disposition
+    // is "accepted" (i.e a new list is applied) ?
+    if (!new_refresh && body.isMember ("refresh_interval"))
+    {
+        if (body["refresh_interval"].isNumeric ())
+        {
+            std::chrono::minutes const refresh =
+                boost::algorithm::clamp(
+                    std::chrono::minutes {body["refresh_interval"].asUInt ()},
+                    1min,
+                    24h);
+            new_refresh = update_refresh(siteIdx, refresh);
+        }
+        else
+            JLOG (j_.warn()) << "Invalid refresh_interval value from " <<
+                sites_[siteIdx].activeResource->uri;
+    }
+
+    if (new_refresh)
         sites_[siteIdx].nextRefresh =
             clock_type::now() + sites_[siteIdx].refreshInterval;
-    }
 }
 
 std::shared_ptr<ValidatorSite::Site::Resource>

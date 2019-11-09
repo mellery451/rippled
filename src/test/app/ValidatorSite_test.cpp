@@ -51,7 +51,7 @@ constexpr const char* realValidatorContents()
 )vl";
 }
 
-auto constexpr default_expires = std::chrono::seconds{3600};
+auto constexpr default_expires = std::chrono::seconds{24*60*60};
 }
 
 class ValidatorSite_test : public beast::unit_test::suite
@@ -173,7 +173,7 @@ private:
 
         for (auto const& cfg : paths)
         {
-            servers.push_back(cfg);
+            servers.emplace_back(cfg);
             auto& item = servers.back();
             item.isRetry = cfg.path == "/bad-resource";
             item.list.reserve (listSize);
@@ -356,6 +356,94 @@ private:
         }
     }
 
+    void
+    testExpiration ()
+    {
+        testcase << "Expiration Reset";
+        using namespace jtx;
+
+        Env env (*this);
+
+        test::StreamSink sink;
+        beast::Journal journal{sink};
+
+        PublicKey emptyLocalKey;
+        std::vector<std::string> emptyCfgKeys;
+
+        auto constexpr listSize = 20;
+        std::vector<Validator> list;
+        list.reserve (listSize);
+        while (list.size () < listSize)
+           list.push_back (TrustedPublisherServer::randomValidator());
+
+        std::vector<std::string> cfgPublishers;
+
+        // create two servers on the same addr/port but with different
+        // expiration times. The the first server will return a "soon"
+        // expiration, then we'll replace that server with the second one which
+        // has a longer expiration to confirm that we reset to the longer
+        // refresh interval after getting a more distant expiration
+        using namespace std::chrono_literals;
+        auto server_1 = TrustedPublisherServer {
+            env.app().getIOService(),
+            list,
+            env.timeKeeper().now() + 1h};
+        cfgPublishers.push_back(strHex(server_1.publisherPublic()));
+        auto server_2 = TrustedPublisherServer {
+            env.app().getIOService(),
+            list,
+            env.timeKeeper().now() + 24h,
+            false,
+            1,
+            false,
+            1,
+            server_1.local_endpoint().port()};
+        cfgPublishers.push_back(strHex(server_2.publisherPublic()));
+
+        BEAST_EXPECT(env.app().validators().load(
+            emptyLocalKey, emptyCfgKeys, cfgPublishers));
+
+        auto sites = std::make_unique<ValidatorSite> (env.app(), journal, 2s);
+        std::stringstream uri;
+        uri << "http://" << server_1.local_endpoint() << "/validators";
+        sites->load ({{uri.str()}});
+        sites->start();
+        sites->join();
+
+        {
+            auto const jv = sites->getJson();
+            log << jv.toStyledString();
+            if (!BEAST_EXPECT(jv[jss::validator_sites].size() == 1))
+                return;
+            auto const myStatus = jv[jss::validator_sites][0u];
+            BEAST_EXPECT(myStatus[jss::uri].asString() == uri.str());
+            BEAST_EXPECT(myStatus[jss::last_refresh_message].asString().empty());
+            BEAST_EXPECT(myStatus[jss::refresh_interval_min].asInt() == 1);
+        }
+
+        server_1.stop();
+        server_2.start();
+        // reach into private state/members to force a refetch
+        // of our site
+        {
+            std::lock_guard lock{sites->state_mutex_};
+            sites->pending_ = true;
+        }
+        sites->onTimer(0, boost::system::error_code{});
+        sites->join();
+
+        {
+            auto const jv = sites->getJson();
+            log << jv.toStyledString();
+            if (!BEAST_EXPECT(jv[jss::validator_sites].size() == 1))
+                return;
+            auto const myStatus = jv[jss::validator_sites][0u];
+            BEAST_EXPECT(myStatus[jss::uri].asString() == uri.str());
+            BEAST_EXPECT(myStatus[jss::last_refresh_message].asString().empty());
+            BEAST_EXPECT(myStatus[jss::refresh_interval_min].asInt() == 5);
+        }
+    }
+
 public:
     void
     run() override
@@ -469,8 +557,29 @@ public:
             1,
             detail::default_expires,
             60*24}}); // max of 24 hours
+        // refresh interval for expiration > 8h
+        testFetchList ({
+            {"/validators",
+            "",
+            ssl,
+            false,
+            false,
+            1,
+            8h + 10s,
+            5}});
+        // refresh interval for expiration < 8h
+        testFetchList ({
+            {"/validators",
+            "",
+            ssl,
+            false,
+            false,
+            1,
+            8h - 10s,
+            1}});
         }
         testFileURLs();
+        testExpiration();
     }
 };
 

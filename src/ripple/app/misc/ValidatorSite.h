@@ -64,9 +64,13 @@ namespace ripple {
     @li @c "refreshInterval" (optional, integer minutes).
         This value is clamped internally to [1,1440] (1 min - 1 day)
 */
+namespace test{ class ValidatorSite_test; }
+
 class ValidatorSite
 {
     friend class Work;
+    friend class test::ValidatorSite_test; // this unit test reaches into
+                                           // some internal state.
 
 private:
     using error_code = boost::system::error_code;

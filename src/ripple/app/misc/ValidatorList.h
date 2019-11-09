@@ -190,13 +190,15 @@ public:
 
         @param version Version of published list format
 
-        @return `ListDisposition::accepted` if list was successfully applied
+        @return pair of ListDisposition and the PublicKey for the publisher.
+        first item will have a value of `ListDisposition::accepted` if
+        list was successfully applied.
 
         @par Thread Safety
 
         May be called concurrently
     */
-    ListDisposition
+    std::pair<ListDisposition, PublicKey>
     applyList (
         std::string const& manifest,
         std::string const& blob,
@@ -336,6 +338,19 @@ public:
     /** Return the number of configured validator list sites. */
     std::size_t
     count() const;
+
+    /** Return the expiration time for the specified publisher
+
+        @note This may be a time in the past if a published list has not
+        been updated since its expiration. It will be boost::none if there
+        is no entry for the specific key or the list has not been
+        fetched yet.
+
+        @par Thread Safety
+        May be called concurrently
+    */
+    boost::optional<TimeKeeper::time_point>
+    expiration(PublicKey const&);
 
     /** Return the time when the validator list will expire
 

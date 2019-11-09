@@ -190,7 +190,7 @@ ValidatorList::load (
     return true;
 }
 
-ListDisposition
+std::pair<ListDisposition, PublicKey>
 ValidatorList::applyList (
     std::string const& manifest,
     std::string const& blob,
@@ -199,7 +199,7 @@ ValidatorList::applyList (
     std::string siteUri)
 {
     if (version != requiredListVersion)
-        return ListDisposition::unsupported_version;
+        return std::make_pair(ListDisposition::unsupported_version, PublicKey{});
 
     std::unique_lock<std::shared_timed_mutex> lock{mutex_};
 
@@ -207,7 +207,7 @@ ValidatorList::applyList (
     PublicKey pubKey;
     auto const result = verify (list, pubKey, manifest, blob, signature);
     if (result != ListDisposition::accepted)
-        return result;
+        return std::make_pair(result, pubKey);
 
     // Update publisher's list
     Json::Value const& newList = list["validators"];
@@ -309,7 +309,7 @@ ValidatorList::applyList (
         }
     }
 
-    return ListDisposition::accepted;
+    return std::make_pair(ListDisposition::accepted, pubKey);
 }
 
 ListDisposition
@@ -463,6 +463,18 @@ ValidatorList::count() const
 {
     std::shared_lock<std::shared_timed_mutex> read_lock{mutex_};
     return publisherLists_.size();
+}
+
+boost::optional<TimeKeeper::time_point>
+ValidatorList::expiration (PublicKey const& publisherKey)
+{
+    boost::optional<TimeKeeper::time_point> res{boost::none};
+    auto const iList = publisherLists_.find (publisherKey);
+    if (iList != publisherLists_.end () &&
+        iList->second.expiration != TimeKeeper::time_point{})
+        res = iList->second.expiration;
+
+    return res;
 }
 
 boost::optional<TimeKeeper::time_point>

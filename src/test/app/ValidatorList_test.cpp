@@ -453,7 +453,7 @@ private:
 
         BEAST_EXPECT(ListDisposition::stale ==
             trustedKeys->applyList (
-                manifest1, expiredblob, expiredSig, version, siteUri));
+                manifest1, expiredblob, expiredSig, version, siteUri).first);
 
         // apply single list
         using namespace std::chrono_literals;
@@ -464,7 +464,7 @@ private:
         auto const sig1 = signList (blob1, pubSigningKeys1);
 
         BEAST_EXPECT(ListDisposition::accepted == trustedKeys->applyList (
-            manifest1, blob1, sig1, version, siteUri));
+            manifest1, blob1, sig1, version, siteUri).first);
 
         for (auto const& val : list1)
         {
@@ -479,13 +479,13 @@ private:
                 pubSigningKeys1.first, pubSigningKeys1.second, 1));
 
         BEAST_EXPECT(ListDisposition::untrusted == trustedKeys->applyList (
-            untrustedManifest, blob1, sig1, version, siteUri));
+            untrustedManifest, blob1, sig1, version, siteUri).first);
 
         // do not use list with unhandled version
         auto const badVersion = 666;
         BEAST_EXPECT(ListDisposition::unsupported_version ==
             trustedKeys->applyList (
-                manifest1, blob1, sig1, badVersion, siteUri));
+                manifest1, blob1, sig1, badVersion, siteUri).first);
 
         // apply list with highest sequence number
         auto const sequence2 = 2;
@@ -495,7 +495,7 @@ private:
 
         BEAST_EXPECT(ListDisposition::accepted ==
             trustedKeys->applyList (
-                manifest1, blob2, sig2, version, siteUri));
+                manifest1, blob2, sig2, version, siteUri).first);
 
         for (auto const& val : list1)
         {
@@ -512,11 +512,11 @@ private:
         // do not re-apply lists with past or current sequence numbers
         BEAST_EXPECT(ListDisposition::stale ==
             trustedKeys->applyList (
-                manifest1, blob1, sig1, version, siteUri));
+                manifest1, blob1, sig1, version, siteUri).first);
 
         BEAST_EXPECT(ListDisposition::same_sequence ==
             trustedKeys->applyList (
-                manifest1, blob2, sig2, version, siteUri));
+                manifest1, blob2, sig2, version, siteUri).first);
 
         // apply list with new publisher key updated by manifest
         auto const pubSigningKeys2 = randomKeyPair(KeyType::secp256k1);
@@ -531,7 +531,7 @@ private:
 
         BEAST_EXPECT(ListDisposition::accepted ==
             trustedKeys->applyList (
-                manifest2, blob3, sig3, version, siteUri));
+                manifest2, blob3, sig3, version, siteUri).first);
 
         auto const sequence4 = 4;
         auto const blob4 = makeList (
@@ -539,7 +539,7 @@ private:
         auto const badSig = signList (blob4, pubSigningKeys1);
         BEAST_EXPECT(ListDisposition::invalid ==
             trustedKeys->applyList (
-                manifest1, blob4, badSig, version, siteUri));
+                manifest1, blob4, badSig, version, siteUri).first);
 
         // do not apply list with revoked publisher key
         // applied list is removed due to revoked publisher key
@@ -554,7 +554,7 @@ private:
 
         BEAST_EXPECT(ListDisposition::untrusted ==
             trustedKeys->applyList (
-                maxManifest, blob5, sig5, version, siteUri));
+                maxManifest, blob5, sig5, version, siteUri).first);
 
         BEAST_EXPECT(! trustedKeys->trustedPublisher(publisherPublic));
         for (auto const& val : list1)
@@ -819,7 +819,7 @@ private:
 
             BEAST_EXPECT(ListDisposition::accepted ==
                 trustedKeys->applyList (
-                    manifest, blob, sig, version, siteUri));
+                    manifest, blob, sig, version, siteUri).first);
 
             TrustChanges changes =
                 trustedKeys->updateTrusted(activeValidators);
@@ -853,7 +853,7 @@ private:
 
             BEAST_EXPECT(ListDisposition::accepted ==
                 trustedKeys->applyList (
-                    manifest, blob2, sig2, version, siteUri));
+                    manifest, blob2, sig2, version, siteUri).first);
 
             changes = trustedKeys->updateTrusted (activeValidators);
             BEAST_EXPECT(changes.removed.empty());
@@ -984,7 +984,7 @@ private:
                 auto const sig = signList (blob, pubSigningKeys);
 
                 BEAST_EXPECT(ListDisposition::accepted == trustedKeys->applyList (
-                    manifest, blob, sig, version, siteUri));
+                    manifest, blob, sig, version, siteUri).first);
             };
 
             // Apply multiple published lists
@@ -1104,7 +1104,7 @@ private:
             // Apply first list
             BEAST_EXPECT(
                 ListDisposition::accepted == trustedKeys->applyList(
-                    prep1.manifest, prep1.blob, prep1.sig, prep1.version, siteUri));
+                    prep1.manifest, prep1.blob, prep1.sig, prep1.version, siteUri).first);
 
             // One list still hasn't published, so expiration is still unknown
             BEAST_EXPECT(trustedKeys->expires() == boost::none);
@@ -1112,7 +1112,7 @@ private:
             // Apply second list
             BEAST_EXPECT(
                 ListDisposition::accepted == trustedKeys->applyList(
-                    prep2.manifest, prep2.blob, prep2.sig, prep2.version, siteUri));
+                    prep2.manifest, prep2.blob, prep2.sig, prep2.version, siteUri).first);
 
             // We now have loaded both lists, so expiration is known
             BEAST_EXPECT(
