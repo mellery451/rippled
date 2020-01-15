@@ -397,10 +397,7 @@ matrix:
         - export CMAKE_EXTRA_ARGS="${CMAKE_EXTRA_ARGS} -DBoost_NO_BOOST_CMAKE=ON -DBoost_COMPILER=-vc141"
 
 before_cache:
-  - if [ $(uname) = "Linux" ] ; then SUDO="sudo"; else SUDO=""; fi
-  - cd ${TRAVIS_HOME}
-  - if [ -f cache_ignore.tar ] ; then $SUDO tar xvf cache_ignore.tar; fi
-  - cd ${TRAVIS_BUILD_DIR}
+  - bin/ci/ubuntu/travis-cache-end.sh
 
 cache:
   timeout: 900

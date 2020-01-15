@@ -4,15 +4,21 @@ set -ex
 function version_ge() { test "$(echo "$@" | tr " " "\n" | sort -rV | head -n 1)" == "$1"; }
 
 __dirname=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
+
 echo "using CC: ${CC}"
 "${CC}" --version
 export CC
 
+if [[ ${UPDATE_ALTS:-} == true ]]; then
+    if [[ $CC =~ ([[:alpha:]]+)-([[:digit:].]+) ]] ; then
+        sudo update-alternatives --set ${BASH_REMATCH[1]} /usr/bin/$CC;
+    fi
+fi
 COMPNAME=$(basename $CC)
 echo "using CXX: ${CXX:-notset}"
 if [[ $CXX ]]; then
-   "${CXX}" --version
-   export CXX
+    "${CXX}" --version
+    export CXX
 fi
 : ${BUILD_TYPE:=Debug}
 echo "BUILD TYPE: ${BUILD_TYPE}"
@@ -21,7 +27,7 @@ echo "BUILD TYPE: ${BUILD_TYPE}"
 echo "BUILD TARGET: ${TARGET}"
 
 JOBS=${NUM_PROCESSORS:-2}
-if [[ ${TRAVIS:-false} != "true" ]]; then
+if [[ ${TRAVIS:-} != "true" ]]; then
     JOBS=$((JOBS+1))
 fi
 

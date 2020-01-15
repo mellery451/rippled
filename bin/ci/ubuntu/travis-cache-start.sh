@@ -2,12 +2,21 @@
 # some cached files create churn, so save them here for
 # later restoration before packing the cache
 set -eux
-pushd ${TRAVIS_HOME}
-if [ -f cache_ignore.tar ] ; then
+
+: ${CACHE_DIR:=$HOME/_cache}
+if [[ ! -d ${CACHE_DIR} ]]; then
+    mkdir -p ${CACHE_DIR};
+fi
+
+pushd $(dirname ${CACHE_DIR})
+echo "looking for cache files to ignore in $(pwd)"
+
+JOBS=${NUM_PROCESSORS:-2}
+if [[ -f cache_ignore.tar ]] ; then
     rm -f cache_ignore.tar
 fi
 
-if [ -d _cache/nih_c ] ; then
+if [[ -d _cache/nih_c ]] ; then
     find _cache/nih_c -name "build.ninja" | tar rf cache_ignore.tar --files-from -
     find _cache/nih_c -name ".ninja_deps" | tar rf cache_ignore.tar --files-from -
     find _cache/nih_c -name ".ninja_log" | tar rf cache_ignore.tar --files-from -
@@ -17,11 +26,11 @@ if [ -d _cache/nih_c ] ; then
     find _cache/nih_c -name "*.a" -ls
 fi
 
-if [ -d _cache/ccache ] ; then
+if [[ -d _cache/ccache ]] ; then
     find _cache/ccache -name "stats" | tar rf cache_ignore.tar --files-from -
 fi
 
-if [ -f cache_ignore.tar ] ; then
+if [[ -f cache_ignore.tar ]] ; then
     tar -tf cache_ignore.tar
 fi
 popd

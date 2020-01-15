@@ -1,0 +1,118 @@
+---
+name: rippled build/test
+
+on: [push, pull_request]
+
+env:
+  DOCKER_IMAGE: rippleci/rippled-ci-builder:2020-01-08
+  # this is NOT used by linux container-based
+  # builds (which already have boost installed)
+  BOOST_URL: https://dl.bintray.com/boostorg/release/1.70.0/source/boost_1_70_0.tar.bz2
+  CONTINUOUS_INTEGRATION: true
+  CMAKE_EXTRA_ARGS: -Dwerr=ON -Dwextra=ON
+  NINJA_BUILD: true
+  CACHE_DIR: ${{ github.workspace }}/_cache
+  # this should use CACHE_DIR, but you can't reference other
+  # env vars currently (github actions limitation)
+  NIH_CACHE_ROOT: ${{ github.workspace }}/_cache/nih_c
+  PARALLEL_TESTS: true
+  VCPKG_DIR: ${{ github.workspace }}/_cache/vcpkg
+  USE_CCACHE: true
+  CCACHE_BASEDIR: ${{ github.workspace }}
+  CCACHE_NOHASHDIR: true
+  CCACHE_DIR: ${{ github.workspace }}/_cache/ccache
+
+#   if [ "${CMAKE_ADD}" != "" ] ; then
+#     echo "::set-env name=CMAKE_EXTRA_ARGS::${CMAKE_EXTRA_ARGS} ${CMAKE_ADD}";
+#   fi
+#
+jobs:
+  j_l01:
+    runs-on: ubuntu-latest
+    name: gcc-8, debug
+    env:
+      BUILD_TYPE: Debug
+      CC: gcc-8
+      CXX: g++-8
+    steps:
+      - uses: actions/checkout@v1
+      - name: set env
+        run: |
+          export NUM_PROCESSORS=$(getconf _NPROCESSORS_ONLN)
+          echo "::set-env name=NUM_PROCESSORS::${NUM_PROCESSORS}"
+          echo "NUM PROC is ${NUM_PROCESSORS}"
+      - name: cache
+        uses: actions/cache@v1
+        with:
+          path: ${{ env.CACHE_DIR }}
+          key: ${{ env.DOCKER_IMAGE }}-${{ env.CC }}-${{ env.BUILD_TYPE }}
+          restore-keys: |
+            ${{ env.DOCKER_IMAGE }}-${{ env.CC }}-
+      - name: cache ignore save
+        run: bin/ci/ubuntu/travis-cache-start.sh
+      - name: docker pull
+        run: docker pull ${DOCKER_IMAGE}
+      - name: build and test
+        run: bin/ci/ubuntu/build-in-docker.sh
+      - name: cache ignore restore
+        run: bin/ci/ubuntu/travis-cache-end.sh
+  j_w01:
+    runs-on: windows-latest
+    name: windows, debug
+    env:
+      BUILD_TYPE: Debug
+      VCPKG_DEFAULT_TRIPLET: x64-windows-static
+      CC: cl.exe
+      CXX: cl.exe
+    steps:
+      - uses: actions/checkout@v1
+      - name: set env
+        shell: bash
+        run: |
+          # NIH_CACHE_ROOT: ${{ env.HOME }}/nih_c
+          export NUM_PROCESSORS=$(getconf _NPROCESSORS_ONLN)
+          echo "::set-env name=NUM_PROCESSORS::${NUM_PROCESSORS}"
+          export BOOST_ROOT=$(echo "${CACHE_DIR}/boost_1_70" | sed 's!\\!/!g')
+          echo "::set-env name=BOOST_ROOT::${BOOST_ROOT}"
+          echo "::set-env name=CMAKE_EXTRA_ARGS::${CMAKE_EXTRA_ARGS} \
+            -DCMAKE_PREFIX_PATH=${BOOST_ROOT}/_INSTALLED_ \
+            -DBOOST_ROOT=${BOOST_ROOT}/_INSTALLED_ \
+            -DBoost_ROOT=${BOOST_ROOT}/_INSTALLED_ \
+            -DBoost_DIR=${BOOST_ROOT}/_INSTALLED_/lib/cmake/Boost-1.70.0 \
+            -DBoost_COMPILER=vc141 \
+            -DCMAKE_VERBOSE_MAKEFILE=ON \
+            -DCMAKE_TOOLCHAIN_FILE=${VCPKG_DIR}/scripts/buildsystems/vcpkg.cmake \
+            -DVCPKG_TARGET_TRIPLET=x64-windows-static"
+          echo "NUM PROC is ${NUM_PROCESSORS}"
+      - name: cache
+        uses: actions/cache@v1
+        with:
+          path: ${{ env.CACHE_DIR }}
+          key: ${{ runner.os }}
+      - name: cache ignore save
+        shell: bash
+        run: bin/ci/ubuntu/travis-cache-start.sh
+      - name: prerequisites
+        shell: bash
+        run: |
+          choco upgrade cmake.install
+          choco install curl wget ninja visualstudio2017-workload-vctools mingw -y
+          which tar
+          tar --help
+          export BOOST_TOOLSET=msvc-14.1
+          Builds/containers/shared/install_boost.sh
+          bin/sh/install-vcpkg.sh openssl
+          bin/sh/install-vcpkg.sh grpc
+          bin/sh/install-vcpkg.sh libarchive[lz4]
+      - name: build and test
+        shell: bash
+        run: |
+          . ./bin/sh/setup-msvc.sh
+          mkdir -p build.ms && cd build.ms
+          cmake -G Ninja ${CMAKE_EXTRA_ARGS} -DCMAKE_BUILD_TYPE=${BLD_TYPE} ..
+          cmake --build . --parallel --verbose
+          ./rippled.exe --unittest --quiet --unittest-log --unittest-jobs ${NUM_PROCESSORS}
+      - name: cache ignore restore
+        shell: bash
+        run: bin/ci/ubuntu/travis-cache-end.sh
+
