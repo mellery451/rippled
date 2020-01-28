@@ -41,6 +41,7 @@ jobs:
           export NUM_PROCESSORS=$(getconf _NPROCESSORS_ONLN)
           echo "::set-env name=NUM_PROCESSORS::${NUM_PROCESSORS}"
           echo "NUM PROC is ${NUM_PROCESSORS}"
+          bin/ci/ubuntu/get-num-cpu.sh
       - name: cache
         uses: actions/cache@v1
         with:
@@ -84,6 +85,7 @@ jobs:
             -DCMAKE_TOOLCHAIN_FILE=${VCPKG_DIR}/scripts/buildsystems/vcpkg.cmake \
             -DVCPKG_TARGET_TRIPLET=x64-windows-static"
           echo "NUM PROC is ${NUM_PROCESSORS}"
+          bin/ci/ubuntu/get-num-cpu.sh
           # Set Path workaround for
           # https://github.com/actions/virtual-environments/issues/263
           echo "::add-path::C:\Program Files\Git\mingw64\bin"
