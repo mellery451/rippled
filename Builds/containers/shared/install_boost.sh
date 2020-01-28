@@ -23,7 +23,7 @@ wget --quiet $BOOST_URL -O /tmp/boost.tar.${ext}
 cd $(dirname $BOOST_ROOT)
 rm -fr ${BOOST_ROOT}
 mkdir ${BOOST_ROOT}
-tar xf /tmp/boost.tar.${ext} -C ${BOOST_ROOT} --strip-components 1
+tar -x -f /tmp/boost.tar.${ext} -C ${BOOST_ROOT} --strip-components 1 -v
 cd $BOOST_ROOT
 
 BLDARGS=()
