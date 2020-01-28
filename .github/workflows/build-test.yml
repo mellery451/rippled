@@ -84,6 +84,11 @@ jobs:
             -DCMAKE_TOOLCHAIN_FILE=${VCPKG_DIR}/scripts/buildsystems/vcpkg.cmake \
             -DVCPKG_TARGET_TRIPLET=x64-windows-static"
           echo "NUM PROC is ${NUM_PROCESSORS}"
+          # Set Path workaround for
+          # https://github.com/actions/virtual-environments/issues/263
+          echo "::add-path::C:\Program Files\Git\mingw64\bin"
+          echo "::add-path::C:\Program Files\Git\usr\bin"
+          echo "::add-path::C:\Program Files\Git\bin"
       - name: cache
         uses: actions/cache@v1
         with:
