@@ -55,7 +55,7 @@ xrpMinusFee (jtx::Env const& env, std::int64_t xrpAmount)
         dropsPerXRP * xrpAmount - feeDrops);
 };
 
-struct Flow_test : public beast::unit_test::suite
+struct Flow_test : public boost::beast::unit_test::suite
 {
     void testDirectStep (FeatureBitset features)
     {
@@ -1238,8 +1238,8 @@ struct Flow_manual_test : public Flow_test
     }
 };
 
-BEAST_DEFINE_TESTSUITE_PRIO(Flow,app,ripple,2);
-BEAST_DEFINE_TESTSUITE_MANUAL_PRIO(Flow_manual,app,ripple,4);
+BEAST_DEFINE_TESTSUITE(Flow,app,ripple);
+BEAST_DEFINE_TESTSUITE_MANUAL(Flow_manual,app,ripple);
 
 } // test
 } // ripple

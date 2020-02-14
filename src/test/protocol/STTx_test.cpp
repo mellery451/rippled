@@ -32,7 +32,7 @@
 
 namespace ripple {
 
-class STTx_test : public beast::unit_test::suite
+class STTx_test : public boost::beast::unit_test::suite
 {
 public:
     void run() override
@@ -1605,7 +1605,7 @@ public:
     }
 };
 
-class InnerObjectFormatsSerializer_test : public beast::unit_test::suite
+class InnerObjectFormatsSerializer_test : public boost::beast::unit_test::suite
 {
 public:
     void run() override
@@ -1644,7 +1644,7 @@ public:
 
         // This lambda contains the bulk of the test code.
         auto testMalformedSigningAccount =
-            [this, &txn]
+            [&txn]
                 (STObject const& signer, bool expectPass)
             {
                 // Create SigningAccounts array.

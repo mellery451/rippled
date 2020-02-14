@@ -32,7 +32,7 @@
 
 namespace ripple {
 
-class STObject_test : public beast::unit_test::suite
+class STObject_test : public boost::beast::unit_test::suite
 {
 public:
     bool parseJSONString (std::string const& json, Json::Value& to)
@@ -246,7 +246,7 @@ public:
         unexpected (sfInvalid.isUseful (), "sfInvalid must not be useful");
         {
             // Test return of sfInvalid.
-            auto testInvalid = [this] (SerializedTypeID tid, int fv)
+            auto testInvalid = [] (SerializedTypeID tid, int fv)
             {
                 SField const& shouldBeInvalid {SField::getField (tid, fv)};
                 BEAST_EXPECT (shouldBeInvalid == sfInvalid);

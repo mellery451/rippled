@@ -22,7 +22,7 @@
 
 namespace ripple {
 
-struct types_test : public beast::unit_test::suite
+struct types_test : public boost::beast::unit_test::suite
 {
     void
     testAccountID()

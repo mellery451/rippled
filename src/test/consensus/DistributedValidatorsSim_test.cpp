@@ -33,7 +33,7 @@ namespace test {
 
 /** In progress simulations for diversifying and distributing validators
 */
-class DistributedValidators_test : public beast::unit_test::suite
+class DistributedValidators_test : public boost::beast::unit_test::suite
 {
 
     void
@@ -266,7 +266,7 @@ class DistributedValidators_test : public beast::unit_test::suite
     }
 };
 
-BEAST_DEFINE_TESTSUITE_MANUAL_PRIO(DistributedValidators, consensus, ripple, 2);
+BEAST_DEFINE_TESTSUITE_MANUAL(DistributedValidators, consensus, ripple);
 
 }  // namespace test
 }  // namespace ripple

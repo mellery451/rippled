@@ -29,7 +29,7 @@
 namespace ripple {
 namespace tests {
 
-class SHAMapSync_test : public beast::unit_test::suite
+class SHAMapSync_test : public boost::beast::unit_test::suite
 {
 public:
     beast::xor_shift_engine eng_;

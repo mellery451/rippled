@@ -27,7 +27,7 @@ namespace ripple {
 
 namespace RPC {
 
-class AccountLinesRPC_test : public beast::unit_test::suite
+class AccountLinesRPC_test : public boost::beast::unit_test::suite
 {
 public:
     void testAccountLines()
@@ -139,7 +139,7 @@ public:
 
         // A re-usable test for historic ledgers.
         auto testAccountLinesHistory =
-        [this, &env](Account const& account, LedgerInfo const& info, int count)
+        [&env](Account const& account, LedgerInfo const& info, int count)
         {
             // Get account_lines by ledger index.
             auto const linesSeq = env.rpc ("json", "account_lines",
@@ -516,7 +516,7 @@ public:
 
         // A re-usable test for historic ledgers.
         auto testAccountLinesHistory =
-        [this, &env](Account const& account, LedgerInfo const& info, int count)
+        [&env](Account const& account, LedgerInfo const& info, int count)
         {
             // Get account_lines by ledger index.
             auto const linesSeq = env.rpc ("json2", "{ "

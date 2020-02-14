@@ -22,7 +22,7 @@
 
 namespace ripple {
 
-class ProtocolVersion_test : public beast::unit_test::suite
+class ProtocolVersion_test : public boost::beast::unit_test::suite
 {
 private:
     template <class FwdIt>

@@ -41,7 +41,7 @@ namespace test {
 using socket_type   = boost::beast::tcp_stream;
 using stream_type   = boost::beast::ssl_stream <socket_type>;
 
-class Server_test : public beast::unit_test::suite
+class Server_test : public boost::beast::unit_test::suite
 {
 public:
 
@@ -76,10 +76,10 @@ public:
 
     class TestSink : public beast::Journal::Sink
     {
-        beast::unit_test::suite& suite_;
+        boost::beast::unit_test::suite& suite_;
 
     public:
-        explicit TestSink (beast::unit_test::suite& suite)
+        explicit TestSink (boost::beast::unit_test::suite& suite)
             : Sink (beast::severities::kWarning, false)
             , suite_ (suite)
         {

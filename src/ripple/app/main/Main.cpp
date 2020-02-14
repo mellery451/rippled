@@ -36,8 +36,8 @@
 #include <ripple/protocol/BuildInfo.h>
 #include <ripple/beast/clock/basic_seconds_clock.h>
 #include <ripple/beast/core/CurrentThreadName.h>
+#include <ripple/beast/unit_test.h>
 
-#include <beast/unit_test/match.hpp>
 #include <test/unit_test/multi_runner.h>
 
 #include <google/protobuf/stubs/common.h>
@@ -186,7 +186,7 @@ void printHelp (const po::options_description& desc)
 class multi_selector
 {
 private:
-    std::vector<beast::unit_test::selector> selectors_;
+    std::vector<boost::beast::unit_test::selector> selectors_;
 public:
     explicit
     multi_selector(std::string const& patterns = "")
@@ -200,12 +200,12 @@ public:
                 boost::trim (s);
                 if (selectors_.empty() || !s.empty())
                     selectors_.emplace_back(
-                        beast::unit_test::selector::automatch, s);
+                        boost::beast::unit_test::selector::automatch, s);
             });
     }
 
     bool
-    operator()(beast::unit_test::suite_info const& s)
+    operator()(boost::beast::unit_test::suite_info const& s)
     {
         for (auto& sel : selectors_)
             if (sel(s))
@@ -227,7 +227,7 @@ static int runUnitTests(
     int argc,
     char** argv)
 {
-    using namespace beast::unit_test;
+    using namespace boost::beast::unit_test;
     using namespace ripple::test;
 
     ripple::test::envUseIPv4 = (! ipv6);

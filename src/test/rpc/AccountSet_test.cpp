@@ -27,7 +27,7 @@
 
 namespace ripple {
 
-class AccountSet_test : public beast::unit_test::suite
+class AccountSet_test : public boost::beast::unit_test::suite
 {
 public:
 
@@ -57,7 +57,7 @@ public:
         env(regkey (alice, alie));
         env.close();
 
-        auto testFlags = [this, &alice, &alie, &env]
+        auto testFlags = [&alice, &alie, &env]
             (std::initializer_list<std::uint32_t> goodFlags)
         {
             std::uint32_t const orig_flags = (*env.le(alice))[ sfFlags ];

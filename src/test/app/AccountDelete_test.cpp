@@ -24,7 +24,7 @@
 namespace ripple {
 namespace test {
 
-class AccountDelete_test : public beast::unit_test::suite
+class AccountDelete_test : public boost::beast::unit_test::suite
 {
 private:
     std::uint32_t openLedgerSeq (jtx::Env& env)

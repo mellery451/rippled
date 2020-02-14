@@ -25,7 +25,7 @@
 namespace ripple {
 namespace test {
 
-class Digraph_test : public beast::unit_test::suite
+class Digraph_test : public boost::beast::unit_test::suite
 {
 public:
 

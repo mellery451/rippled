@@ -25,7 +25,7 @@
 namespace ripple {
 namespace test {
 
-class CashDiff_test : public beast::unit_test::suite
+class CashDiff_test : public boost::beast::unit_test::suite
 {
     static_assert(!std::is_default_constructible<CashDiff>{}, "");
     static_assert(!std::is_copy_constructible<CashDiff>{}, "");

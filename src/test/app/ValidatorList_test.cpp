@@ -32,7 +32,7 @@
 namespace ripple {
 namespace test {
 
-class ValidatorList_test : public beast::unit_test::suite
+class ValidatorList_test : public boost::beast::unit_test::suite
 {
 private:
     struct Validator

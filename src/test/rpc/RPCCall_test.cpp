@@ -7412,7 +7412,7 @@ std::string updateAPIVersionString(const char * const req)
     return jr;
 }
 
-class RPCCall_test : public beast::unit_test::suite
+class RPCCall_test : public boost::beast::unit_test::suite
 {
 public:
     void testRPCCall()

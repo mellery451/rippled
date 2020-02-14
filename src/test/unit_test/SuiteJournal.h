@@ -30,12 +30,12 @@ namespace test {
 class SuiteJournalSink : public beast::Journal::Sink
 {
     std::string partition_;
-    beast::unit_test::suite& suite_;
+    boost::beast::unit_test::suite& suite_;
 
 public:
     SuiteJournalSink(std::string const& partition,
             beast::severities::Severity threshold,
-            beast::unit_test::suite& suite)
+            boost::beast::unit_test::suite& suite)
         : Sink (threshold, false)
         , partition_(partition + " ")
         , suite_ (suite)
@@ -85,7 +85,7 @@ class SuiteJournal
 
 public:
     SuiteJournal(std::string const& partition,
-            beast::unit_test::suite& suite,
+            boost::beast::unit_test::suite& suite,
             beast::severities::Severity threshold = beast::severities::kFatal)
         : sink_ (partition, threshold, suite)
         , journal_ (sink_)

@@ -711,7 +711,7 @@ public:
     {
         testcase ("ripple-lib encoded Ed25519 keys");
 
-        auto test = [this](char const* seed, char const* addr)
+        auto test = [](char const* seed, char const* addr)
         {
             {
                 Json::Value params;

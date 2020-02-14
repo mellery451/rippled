@@ -33,7 +33,7 @@ namespace IP {
 
 //------------------------------------------------------------------------------
 
-class IPEndpoint_test : public unit_test::suite
+class IPEndpoint_test : public boost::beast::unit_test::suite
 {
 public:
     void shouldParseAddrV4 (

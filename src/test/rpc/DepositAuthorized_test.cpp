@@ -23,7 +23,7 @@
 namespace ripple {
 namespace test {
 
-class DepositAuthorized_test : public beast::unit_test::suite
+class DepositAuthorized_test : public boost::beast::unit_test::suite
 {
 public:
     // Helper function that builds arguments for a deposit_authorized command.
@@ -120,7 +120,7 @@ public:
         Account const becky {"becky"};
 
         // Lambda that checks the (error) result of deposit_authorized.
-        auto verifyErr = [this] (
+        auto verifyErr = [] (
             Json::Value const& result, char const* error, char const* errorMsg)
         {
             BEAST_EXPECT (result[jss::result][jss::status] == jss::error);

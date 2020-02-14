@@ -25,7 +25,7 @@
 namespace ripple {
 namespace test {
 
-struct LedgerReplay_test : public beast::unit_test::suite
+struct LedgerReplay_test : public boost::beast::unit_test::suite
 {
     void run() override
     {

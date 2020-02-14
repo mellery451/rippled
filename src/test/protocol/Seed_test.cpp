@@ -29,7 +29,7 @@
 
 namespace ripple {
 
-class Seed_test : public beast::unit_test::suite
+class Seed_test : public boost::beast::unit_test::suite
 {
     static
     bool equal(Seed const& lhs, Seed const& rhs)

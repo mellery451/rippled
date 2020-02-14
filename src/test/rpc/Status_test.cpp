@@ -25,7 +25,7 @@
 namespace ripple {
 namespace RPC {
 
-class codeString_test : public beast::unit_test::suite
+class codeString_test : public boost::beast::unit_test::suite
 {
 private:
     template <typename Type>
@@ -92,7 +92,7 @@ public:
 
 BEAST_DEFINE_TESTSUITE (codeString, Status, RPC);
 
-class fillJson_test : public beast::unit_test::suite
+class fillJson_test : public boost::beast::unit_test::suite
 {
 private:
     Json::Value value_;

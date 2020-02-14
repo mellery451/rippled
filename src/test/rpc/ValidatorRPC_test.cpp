@@ -34,7 +34,7 @@ namespace ripple {
 
 namespace test {
 
-class ValidatorRPC_test : public beast::unit_test::suite
+class ValidatorRPC_test : public boost::beast::unit_test::suite
 {
     using Validator = TrustedPublisherServer::Validator;
 

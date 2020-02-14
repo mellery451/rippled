@@ -31,7 +31,7 @@
 namespace ripple {
 namespace test {
 namespace csf {
-class Validations_test : public beast::unit_test::suite
+class Validations_test : public boost::beast::unit_test::suite
 {
     using clock_type = beast::abstract_clock<std::chrono::steady_clock> const;
 

@@ -30,7 +30,7 @@
 namespace ripple {
 namespace test {
 
-class Submit_test : public beast::unit_test::suite
+class Submit_test : public boost::beast::unit_test::suite
 {
 public:
     class SubmitClient : public GRPCTestClientBase

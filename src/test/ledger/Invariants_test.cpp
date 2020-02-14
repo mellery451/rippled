@@ -28,7 +28,7 @@
 
 namespace ripple {
 
-class Invariants_test : public beast::unit_test::suite
+class Invariants_test : public boost::beast::unit_test::suite
 {
     // this is common setup/method for running a failing invariant check. The
     // precheck function is used to manipulate the ApplyContext with view
@@ -275,7 +275,7 @@ class Invariants_test : public beast::unit_test::suite
         doInvariantCheck (enabled,
             {{ "incorrect account XRP balance" },
              {  "XRP net change was positive: 99999999000000001" }},
-            [this](Account const& A1, Account const&, ApplyContext& ac)
+            [](Account const& A1, Account const&, ApplyContext& ac)
             {
                 // balance exceeds genesis amount
                 auto const sle = ac.view().peek (keylet::account(A1.id()));
@@ -293,7 +293,7 @@ class Invariants_test : public beast::unit_test::suite
         doInvariantCheck (enabled,
             {{ "incorrect account XRP balance" },
              { "XRP net change of -1000000001 doesn't match fee 0" }},
-            [this](Account const& A1, Account const&, ApplyContext& ac)
+            [](Account const& A1, Account const&, ApplyContext& ac)
             {
                 // balance is negative
                 auto const sle = ac.view().peek (keylet::account(A1.id()));

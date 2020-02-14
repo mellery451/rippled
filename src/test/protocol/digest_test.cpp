@@ -30,7 +30,7 @@
 
 namespace ripple {
 
-class digest_test : public beast::unit_test::suite
+class digest_test : public boost::beast::unit_test::suite
 {
     std::vector<uint256> dataset1;
 
@@ -157,6 +157,6 @@ public:
     }
 };
 
-BEAST_DEFINE_TESTSUITE_MANUAL_PRIO(digest,ripple_data,ripple,20);
+BEAST_DEFINE_TESTSUITE_MANUAL(digest,ripple_data,ripple);
 
 } // ripple

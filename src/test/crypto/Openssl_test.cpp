@@ -22,7 +22,7 @@
 #include <type_traits>
 
 namespace ripple {
-struct Openssl_test : public beast::unit_test::suite
+struct Openssl_test : public boost::beast::unit_test::suite
 {
     void
     testBasicProperties()

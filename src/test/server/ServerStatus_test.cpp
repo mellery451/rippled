@@ -28,7 +28,7 @@
 #include <ripple/app/ledger/LedgerMaster.h>
 #include <ripple/basics/base64.h>
 #include <boost/beast/http.hpp>
-#include <beast/test/yield_to.hpp>
+#include <beast/extras/beast/test/yield_to.hpp>
 #include <boost/beast/core/multi_buffer.hpp>
 #include <boost/asio.hpp>
 #include <boost/asio/ssl.hpp>
@@ -42,7 +42,7 @@ namespace ripple {
 namespace test {
 
 class ServerStatus_test :
-    public beast::unit_test::suite, public beast::test::enable_yield_to
+    public boost::beast::unit_test::suite, public beast::test::enable_yield_to
 {
     class myFields : public boost::beast::http::fields {};
 

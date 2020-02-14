@@ -5,9 +5,7 @@
 // file LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt)
 //
 
-#include <beast/unit_test/amount.hpp>
-#include <beast/unit_test/global_suites.hpp>
-#include <beast/unit_test/suite.hpp>
+#include <ripple/beast/unit_test.h>
 #include <string>
 
 // Include this .cpp in your project to gain access to the printing suite
@@ -16,12 +14,13 @@ namespace beast {
 namespace unit_test {
 
 /** A suite that prints the list of globally defined suites. */
-class print_test : public suite
+class print_test : public boost::beast::unit_test::suite
 {
 public:
     void
     run() override
     {
+        using namespace boost::beast::unit_test;
         std::size_t manual = 0;
         std::size_t total = 0;
 

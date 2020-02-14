@@ -65,7 +65,7 @@ bool isSame (std::shared_ptr<NodeObject> const& lhs,
 
 // Some common code for the unit tests
 //
-class TestBase : public beast::unit_test::suite
+class TestBase : public boost::beast::unit_test::suite
 {
 public:
     // Tunable parameters

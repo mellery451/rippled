@@ -295,13 +295,13 @@ parse_args(std::string const& s)
 
 #if RIPPLE_ROCKSDB_AVAILABLE
 
-class import_test : public beast::unit_test::suite
+class import_test : public boost::beast::unit_test::suite
 {
 public:
     void
     run() override
     {
-        testcase(beast::unit_test::abort_on_fail) << arg();
+        testcase(boost::beast::unit_test::abort_on_fail) << arg();
 
         using namespace nudb;
         using namespace nudb::detail;

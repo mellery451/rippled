@@ -23,7 +23,7 @@
 
 namespace ripple {
 
-struct qalloc_test : beast::unit_test::suite
+struct qalloc_test : boost::beast::unit_test::suite
 {
     void
     testBasicProperties()

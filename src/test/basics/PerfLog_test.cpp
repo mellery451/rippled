@@ -34,7 +34,7 @@
 
 namespace ripple {
 
-class PerfLog_test : public beast::unit_test::suite
+class PerfLog_test : public boost::beast::unit_test::suite
 {
     enum class WithFile : bool
     {
@@ -445,7 +445,7 @@ public:
         // Note that label[0] id[0] is intentionally left unfinished.
 
         auto validateFinalCounters =
-            [this, &labels] (Json::Value const& countersJson)
+            [&labels] (Json::Value const& countersJson)
         {
             {
                 Json::Value const& jobQueue = countersJson[jss::job_queue];
@@ -494,7 +494,7 @@ public:
         };
 
         auto validateFinalCurrent =
-            [this, &labels] (Json::Value const& currentJson)
+            [&labels] (Json::Value const& currentJson)
         {
             {
                 Json::Value const& job_queue = currentJson[jss::jobs];
@@ -799,7 +799,7 @@ public:
 
         // Validate the final results.
         auto validateFinalCounters =
-            [this, &jobs] (Json::Value const& countersJson)
+            [&jobs] (Json::Value const& countersJson)
         {
             {
                 Json::Value const& rpc = countersJson[jss::rpc];
@@ -846,7 +846,7 @@ public:
         };
 
         auto validateFinalCurrent =
-            [this] (Json::Value const& currentJson)
+            [] (Json::Value const& currentJson)
         {
             {
                 Json::Value const& j = currentJson[jss::jobs];
@@ -935,7 +935,7 @@ public:
 
         // Lambda to validate countersJson for this test.
         auto verifyCounters =
-            [this, jobTypeName] (Json::Value const& countersJson,
+            [jobTypeName] (Json::Value const& countersJson,
             int started, int finished, int queued_us, int running_us)
         {
             BEAST_EXPECT(countersJson.isObject());
@@ -965,7 +965,7 @@ public:
         };
 
         // Lambda to validate currentJson (always empty) for this test.
-        auto verifyEmptyCurrent = [this] (Json::Value const& currentJson)
+        auto verifyEmptyCurrent = [] (Json::Value const& currentJson)
         {
             BEAST_EXPECT(currentJson.isObject());
             BEAST_EXPECT(currentJson.size() == 2);

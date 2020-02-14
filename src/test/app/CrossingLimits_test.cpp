@@ -22,7 +22,7 @@
 namespace ripple {
 namespace test {
 
-class CrossingLimits_test : public beast::unit_test::suite
+class CrossingLimits_test : public boost::beast::unit_test::suite
 {
 private:
     void
@@ -534,7 +534,7 @@ public:
     }
 };
 
-BEAST_DEFINE_TESTSUITE_MANUAL_PRIO(CrossingLimits,tx,ripple,10);
+BEAST_DEFINE_TESTSUITE_MANUAL(CrossingLimits,tx,ripple);
 
 } // test
 } // ripple

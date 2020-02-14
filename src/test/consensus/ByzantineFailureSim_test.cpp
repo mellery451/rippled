@@ -24,7 +24,7 @@
 namespace ripple {
 namespace test {
 
-class ByzantineFailureSim_test : public beast::unit_test::suite
+class ByzantineFailureSim_test : public boost::beast::unit_test::suite
 {
     void
     run() override

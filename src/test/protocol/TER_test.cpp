@@ -25,7 +25,7 @@
 
 namespace ripple {
 
-struct TER_test : public beast::unit_test::suite
+struct TER_test : public boost::beast::unit_test::suite
 {
     void
     testTransResultInfo()
@@ -64,7 +64,7 @@ struct TER_test : public beast::unit_test::suite
     {
     public:
         template<typename Tup>
-        void operator()(Tup const& tup, beast::unit_test::suite&) const
+        void operator()(Tup const& tup, boost::beast::unit_test::suite&) const
         {
             // Entries in the tuple should not be convertible or assignable
             // unless they are the same types.
@@ -91,7 +91,7 @@ struct TER_test : public beast::unit_test::suite
     template<std::size_t I1, std::size_t I2,
         template<std::size_t, std::size_t> class Func, typename Tup>
     std::enable_if_t<I1 != 0>
-    testIterate (Tup const& tup, beast::unit_test::suite& s)
+    testIterate (Tup const& tup, boost::beast::unit_test::suite& s)
     {
         Func<I1, I2> func;
         func (tup, s);
@@ -102,7 +102,7 @@ struct TER_test : public beast::unit_test::suite
     template<std::size_t I1, std::size_t I2,
         template<std::size_t, std::size_t> class Func, typename Tup>
     std::enable_if_t<I1 == 0 && I2 != 0>
-    testIterate (Tup const& tup, beast::unit_test::suite& s)
+    testIterate (Tup const& tup, boost::beast::unit_test::suite& s)
     {
         Func<I1, I2> func;
         func (tup, s);
@@ -113,7 +113,7 @@ struct TER_test : public beast::unit_test::suite
     template<std::size_t I1, std::size_t I2,
         template<std::size_t, std::size_t> class Func, typename Tup>
     std::enable_if_t<I1 == 0 && I2 == 0>
-    testIterate (Tup const& tup, beast::unit_test::suite& s)
+    testIterate (Tup const& tup, boost::beast::unit_test::suite& s)
     {
         Func<I1, I2> func;
         func (tup, s);
@@ -200,7 +200,7 @@ struct TER_test : public beast::unit_test::suite
     {
     public:
         template<typename Tup>
-        void operator()(Tup const& tup, beast::unit_test::suite& s) const
+        void operator()(Tup const& tup, boost::beast::unit_test::suite& s) const
         {
             // All entries in the tuple should be comparable one to the other.
             auto const lhs = std::get<I1>(tup);

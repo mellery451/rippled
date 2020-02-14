@@ -30,7 +30,7 @@
 namespace ripple {
 namespace test {
 
-class AccountInfo_test : public beast::unit_test::suite
+class AccountInfo_test : public boost::beast::unit_test::suite
 {
 public:
 

@@ -28,7 +28,7 @@ namespace ripple {
 
 namespace test {
 
-class AccountTx_test : public beast::unit_test::suite
+class AccountTx_test : public boost::beast::unit_test::suite
 {
     // A data structure used to describe the basic structure of a
     // transactions array node as returned by the account_tx RPC command.

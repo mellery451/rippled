@@ -35,7 +35,7 @@
 namespace ripple {
 namespace test {
 
-class Tx_test : public beast::unit_test::suite
+class Tx_test : public boost::beast::unit_test::suite
 {
     template <class T>
     std::string

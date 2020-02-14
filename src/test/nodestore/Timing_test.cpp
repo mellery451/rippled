@@ -27,7 +27,6 @@
 #include <ripple/beast/xor_shift_engine.h>
 #include <ripple/beast/unit_test.h>
 #include <test/unit_test/SuiteJournal.h>
-#include <beast/unit_test/thread.hpp>
 #include <boost/algorithm/string.hpp>
 #include <atomic>
 #include <chrono>
@@ -139,7 +138,7 @@ public:
 
 //----------------------------------------------------------------------------------
 
-class Timing_test : public beast::unit_test::suite
+class Timing_test : public boost::beast::unit_test::suite
 {
 public:
     enum
@@ -243,7 +242,7 @@ public:
         std::size_t number_of_threads, Args const&... args)
     {
         std::atomic<std::size_t> c(0);
-        std::vector<beast::unit_test::thread> t;
+        std::vector<boost::beast::unit_test::thread> t;
         t.reserve(number_of_threads);
         for (std::size_t id = 0; id < number_of_threads; ++id)
             t.emplace_back(*this,
@@ -259,7 +258,7 @@ public:
         std::size_t number_of_threads, Args const&... args)
     {
         std::atomic<std::size_t> c(0);
-        std::vector<beast::unit_test::thread> t;
+        std::vector<boost::beast::unit_test::thread> t;
         t.reserve(number_of_threads);
         for (std::size_t id = 0; id < number_of_threads; ++id)
             t.emplace_back(*this,
@@ -706,7 +705,7 @@ public:
     void
     run() override
     {
-        testcase ("Timing", beast::unit_test::abort_on_fail);
+        testcase ("Timing", boost::beast::unit_test::abort_on_fail);
 
         /*  Parameters:
 
@@ -752,7 +751,7 @@ public:
     }
 };
 
-BEAST_DEFINE_TESTSUITE_MANUAL_PRIO(Timing,NodeStore,ripple,1);
+BEAST_DEFINE_TESTSUITE_MANUAL(Timing,NodeStore,ripple);
 
 }
 }

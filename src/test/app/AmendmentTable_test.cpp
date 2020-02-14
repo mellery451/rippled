@@ -34,7 +34,7 @@
 namespace ripple
 {
 
-class AmendmentTable_test final : public beast::unit_test::suite
+class AmendmentTable_test final : public boost::beast::unit_test::suite
 {
 private:
     // 204/256 about 80% (we round down because the implementation rounds up)

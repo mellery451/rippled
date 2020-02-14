@@ -33,7 +33,7 @@
 namespace ripple {
 namespace tests {
 
-class FetchPack_test : public beast::unit_test::suite
+class FetchPack_test : public boost::beast::unit_test::suite
 {
 public:
     enum

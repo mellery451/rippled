@@ -35,7 +35,7 @@ bool operator== (Endpoint const& a, Endpoint const& b)
             a.address == b.address);
 }
 
-class Livecache_test : public beast::unit_test::suite
+class Livecache_test : public boost::beast::unit_test::suite
 {
     TestStopwatch clock_;
     test::SuiteJournal journal_;

@@ -56,7 +56,7 @@ namespace jtx {
 
 //------------------------------------------------------------------------------
 
-Env::AppBundle::AppBundle(beast::unit_test::suite& suite,
+Env::AppBundle::AppBundle(boost::beast::unit_test::suite& suite,
     std::unique_ptr<Config> config,
     std::unique_ptr<Logs> logs)
     : AppBundle()

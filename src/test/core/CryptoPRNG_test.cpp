@@ -26,7 +26,7 @@
 
 namespace ripple {
 
-class CryptoPRNG_test : public beast::unit_test::suite
+class CryptoPRNG_test : public boost::beast::unit_test::suite
 {
     void
     testGetValues()

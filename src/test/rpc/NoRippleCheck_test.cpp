@@ -31,7 +31,7 @@
 
 namespace ripple {
 
-class NoRippleCheck_test : public beast::unit_test::suite
+class NoRippleCheck_test : public boost::beast::unit_test::suite
 {
     void
     testBadInput ()
@@ -237,7 +237,7 @@ public:
     }
 };
 
-class NoRippleCheckLimits_test : public beast::unit_test::suite
+class NoRippleCheckLimits_test : public boost::beast::unit_test::suite
 {
     void
     testLimits(bool admin)
@@ -357,7 +357,7 @@ BEAST_DEFINE_TESTSUITE(NoRippleCheck, app, ripple);
 // offer/account setup, so making them manual -- the additional coverage provided
 // by them is minimal
 
-BEAST_DEFINE_TESTSUITE_MANUAL_PRIO(NoRippleCheckLimits, app, ripple, 1);
+BEAST_DEFINE_TESTSUITE_MANUAL(NoRippleCheckLimits, app, ripple);
 
 } // ripple
 

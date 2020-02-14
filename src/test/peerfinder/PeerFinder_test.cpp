@@ -28,7 +28,7 @@
 namespace ripple {
 namespace PeerFinder {
 
-class PeerFinder_test : public beast::unit_test::suite
+class PeerFinder_test : public boost::beast::unit_test::suite
 {
     test::SuiteJournal journal_;
 

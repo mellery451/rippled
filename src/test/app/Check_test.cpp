@@ -104,7 +104,7 @@ public:
 } // namespace jtx
 } // namespace test
 
-class Check_test : public beast::unit_test::suite
+class Check_test : public boost::beast::unit_test::suite
 {
     // Helper function that returns the Checks on an account.
     static std::vector<std::shared_ptr<SLE const>>
@@ -228,7 +228,7 @@ class Check_test : public beast::unit_test::suite
         // still write a check for USD.  You don't have to have the funds
         // necessary to cover a check in order to write a check.
         auto writeTwoChecks =
-            [&env, &USD, this] (Account const& from, Account const& to)
+            [&env, &USD] (Account const& from, Account const& to)
         {
             std::uint32_t const fromOwnerCount {ownerCount (env, from)};
             std::uint32_t const toOwnerCount   {ownerCount (env, to  )};

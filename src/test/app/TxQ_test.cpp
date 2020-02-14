@@ -38,7 +38,7 @@ namespace ripple {
 
 namespace test {
 
-class TxQ_test : public beast::unit_test::suite
+class TxQ_test : public boost::beast::unit_test::suite
 {
     void
     checkMetrics(
@@ -3106,7 +3106,7 @@ public:
     }
 };
 
-BEAST_DEFINE_TESTSUITE_PRIO(TxQ,app,ripple,1);
+BEAST_DEFINE_TESTSUITE(TxQ,app,ripple);
 
 }
 }

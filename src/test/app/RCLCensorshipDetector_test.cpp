@@ -25,7 +25,7 @@
 namespace ripple {
 namespace test {
 
-class RCLCensorshipDetector_test : public beast::unit_test::suite
+class RCLCensorshipDetector_test : public boost::beast::unit_test::suite
 {
     void test(
         RCLCensorshipDetector<int, int>& cdet, int round,

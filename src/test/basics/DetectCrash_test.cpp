@@ -17,14 +17,14 @@
 */
 //==============================================================================
 
-#include <beast/unit_test/suite.hpp>
+#include <ripple/beast/unit_test.h>
 
 #include <exception>
 
 namespace ripple {
 namespace test {
 
-struct DetectCrash_test : public beast::unit_test::suite
+struct DetectCrash_test : public boost::beast::unit_test::suite
 {
     void testDetectCrash ()
     {

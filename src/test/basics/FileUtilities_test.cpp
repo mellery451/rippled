@@ -24,7 +24,7 @@
 
 namespace ripple {
 
-class FileUtilities_test : public beast::unit_test::suite
+class FileUtilities_test : public boost::beast::unit_test::suite
 {
 public:
     void testGetFileContents()

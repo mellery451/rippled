@@ -23,7 +23,7 @@
 
 namespace ripple {
 
-class TransactionEntry_test : public beast::unit_test::suite
+class TransactionEntry_test : public boost::beast::unit_test::suite
 {
     void
     testBadInput()
@@ -147,7 +147,7 @@ class TransactionEntry_test : public beast::unit_test::suite
         using namespace test::jtx;
         Env env {*this};
 
-        auto check_tx = [this, &env]
+        auto check_tx = [&env]
             (int index, std::string const txhash, std::string const type = "")
             {
                 // first request using ledger_index to lookup

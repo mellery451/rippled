@@ -21,7 +21,7 @@
 #define RIPPLE_BASICS_BASICCONFIG_H_INCLUDED
 
 #include <ripple/basics/contract.h>
-#include <beast/unit_test/detail/const_container.hpp>
+#include <boost/beast/_experimental/unit_test/detail/const_container.hpp>
 #include <boost/beast/core/string.hpp>
 #include <boost/lexical_cast.hpp>
 #include <boost/optional.hpp>
@@ -41,7 +41,7 @@ using IniFileSections = std::map<std::string, std::vector<std::string>>;
     A configuration file contains zero or more sections.
 */
 class Section
-    : public beast::unit_test::detail::const_container <
+    : public boost::beast::unit_test::detail::const_container <
         std::map <std::string, std::string, boost::beast::iless>>
 {
 private:

@@ -30,7 +30,7 @@
 namespace ripple {
 namespace test {
 
-class SSLHTTPDownloader_test : public beast::unit_test::suite
+class SSLHTTPDownloader_test : public boost::beast::unit_test::suite
 {
     TrustedPublisherServer createServer(
         jtx::Env& env,

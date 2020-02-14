@@ -24,7 +24,7 @@
 
 namespace ripple {
 
-class LedgerData_test : public beast::unit_test::suite
+class LedgerData_test : public boost::beast::unit_test::suite
 {
 public:
     // test helper
@@ -461,6 +461,6 @@ public:
     }
 };
 
-BEAST_DEFINE_TESTSUITE_PRIO(LedgerData,app,ripple,1);
+BEAST_DEFINE_TESTSUITE(LedgerData,app,ripple);
 
 }

@@ -176,7 +176,7 @@ public:
     }
 };
 
-class DeliveredAmount_test : public beast::unit_test::suite
+class DeliveredAmount_test : public boost::beast::unit_test::suite
 {
     void
     testAccountDeliveredAmountSubscribe()

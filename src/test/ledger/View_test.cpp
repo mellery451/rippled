@@ -32,7 +32,7 @@ namespace ripple {
 namespace test {
 
 class View_test
-    : public beast::unit_test::suite
+    : public boost::beast::unit_test::suite
 {
     // Convert a small integer to a key
     static
@@ -424,7 +424,7 @@ class View_test
         auto const ledger = std::make_shared<Ledger>(
             *genesis,
             env.app().timeKeeper().closeTime());
-        auto setup123 = [&ledger, this]()
+        auto setup123 = [&ledger]()
         {
             // erase middle element
             wipe (*ledger);
@@ -782,7 +782,7 @@ class View_test
 };
 
 class GetAmendments_test
-    : public beast::unit_test::suite
+    : public boost::beast::unit_test::suite
 {
     void
     testGetAmendments()

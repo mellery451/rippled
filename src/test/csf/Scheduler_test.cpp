@@ -24,7 +24,7 @@
 namespace ripple {
 namespace test {
 
-class Scheduler_test : public beast::unit_test::suite
+class Scheduler_test : public boost::beast::unit_test::suite
 {
 public:
 

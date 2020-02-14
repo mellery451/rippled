@@ -23,7 +23,7 @@
 
 namespace beast {
 
-class basic_seconds_clock_test : public unit_test::suite
+class basic_seconds_clock_test : public boost::beast::unit_test::suite
 {
 public:
     void

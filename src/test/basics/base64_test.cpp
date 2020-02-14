@@ -31,7 +31,7 @@
 
 namespace ripple {
 
-class base64_test : public beast::unit_test::suite
+class base64_test : public boost::beast::unit_test::suite
 {
 public:
     void

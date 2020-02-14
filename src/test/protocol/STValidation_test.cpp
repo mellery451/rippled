@@ -31,7 +31,7 @@
 
 namespace ripple {
 
-class STValidation_test : public beast::unit_test::suite
+class STValidation_test : public boost::beast::unit_test::suite
 {
 public:
     void testDeserialization ()

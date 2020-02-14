@@ -25,7 +25,7 @@
 namespace ripple {
 namespace test {
 
-class Book_test : public beast::unit_test::suite
+class Book_test : public boost::beast::unit_test::suite
 {
     std::string getBookDir(jtx::Env & env, Issue const& in, Issue const& out)
     {
@@ -1694,7 +1694,7 @@ public:
     }
 };
 
-BEAST_DEFINE_TESTSUITE_PRIO(Book,app,ripple,1);
+BEAST_DEFINE_TESTSUITE(Book,app,ripple);
 
 } // test
 } // ripple

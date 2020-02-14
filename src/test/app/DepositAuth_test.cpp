@@ -37,7 +37,7 @@ static bool hasDepositAuth (jtx::Env const& env, jtx::Account const& acct)
 }
 
 
-struct DepositAuth_test : public beast::unit_test::suite
+struct DepositAuth_test : public boost::beast::unit_test::suite
 {
     void testEnable()
     {
@@ -107,7 +107,7 @@ struct DepositAuth_test : public beast::unit_test::suite
         env.close();
 
         // None of the following payments should succeed.
-        auto failedIouPayments = [this, &env, &alice, &bob, &USD] ()
+        auto failedIouPayments = [&env, &alice, &bob, &USD] ()
         {
             env.require (flags (bob, asfDepositAuth));
 
@@ -380,7 +380,7 @@ struct DepositAuth_test : public beast::unit_test::suite
     }
 };
 
-struct DepositPreauth_test : public beast::unit_test::suite
+struct DepositPreauth_test : public boost::beast::unit_test::suite
 {
     void testEnable()
     {

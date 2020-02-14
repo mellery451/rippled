@@ -22,7 +22,7 @@
 
 namespace beast {
 
-class Journal_test : public unit_test::suite
+class Journal_test : public boost::beast::unit_test::suite
 {
 public:
     class TestSink : public Journal::Sink

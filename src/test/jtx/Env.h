@@ -90,11 +90,11 @@ supported_amendments()
 
 class SuiteLogs : public Logs
 {
-    beast::unit_test::suite& suite_;
+    boost::beast::unit_test::suite& suite_;
 
 public:
     explicit
-    SuiteLogs(beast::unit_test::suite& suite)
+    SuiteLogs(boost::beast::unit_test::suite& suite)
         : Logs (beast::severities::kError)
         , suite_(suite)
     {
@@ -117,7 +117,7 @@ public:
 class Env
 {
 public:
-    beast::unit_test::suite& test;
+    boost::beast::unit_test::suite& test;
 
     Account const& master = Account::master;
 
@@ -131,7 +131,7 @@ private:
         std::unique_ptr<AbstractClient> client;
 
         AppBundle() = default;
-        AppBundle (beast::unit_test::suite& suite,
+        AppBundle (boost::beast::unit_test::suite& suite,
             std::unique_ptr<Config> config,
             std::unique_ptr<Logs> logs);
         ~AppBundle();
@@ -160,7 +160,7 @@ public:
      * supported_features_except() to enable all and disable specific features.
      */
     // VFALCO Could wrap the suite::log in a Journal here
-    Env (beast::unit_test::suite& suite_,
+    Env (boost::beast::unit_test::suite& suite_,
             std::unique_ptr<Config> config,
             FeatureBitset features,
             std::unique_ptr<Logs> logs = nullptr)
@@ -192,7 +192,7 @@ public:
      * @param args collection of features
      *
      */
-    Env (beast::unit_test::suite& suite_,
+    Env (boost::beast::unit_test::suite& suite_,
             FeatureBitset features)
         : Env(suite_, envconfig(), features)
     {
@@ -209,7 +209,7 @@ public:
      * @param config The desired Config - ownership will be taken by moving
      * the pointer. See envconfig and related functions for common config tweaks.
      */
-    Env (beast::unit_test::suite& suite_,
+    Env (boost::beast::unit_test::suite& suite_,
         std::unique_ptr<Config> config,
         std::unique_ptr<Logs> logs = nullptr)
         : Env(suite_, std::move(config),
@@ -226,7 +226,7 @@ public:
      *
      * @param suite_ the current unit_test::suite
      */
-    Env (beast::unit_test::suite& suite_)
+    Env (boost::beast::unit_test::suite& suite_)
         : Env(suite_, envconfig())
     {
     }

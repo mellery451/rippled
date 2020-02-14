@@ -27,7 +27,7 @@
 namespace ripple {
 namespace test {
 
-class Consensus_test : public beast::unit_test::suite
+class Consensus_test : public boost::beast::unit_test::suite
 {
     SuiteJournal journal_;
 

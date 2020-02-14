@@ -31,7 +31,7 @@
 namespace ripple {
 namespace test {
 
-class LedgerHistory_test : public beast::unit_test::suite
+class LedgerHistory_test : public boost::beast::unit_test::suite
 {
 public:
     /** Log manager that searches for a specific message substring

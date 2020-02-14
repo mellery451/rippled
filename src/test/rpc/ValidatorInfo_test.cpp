@@ -28,7 +28,7 @@
 namespace ripple {
 namespace test {
 
-class ValidatorInfo_test : public beast::unit_test::suite
+class ValidatorInfo_test : public boost::beast::unit_test::suite
 {
 public:
     void testErrors()

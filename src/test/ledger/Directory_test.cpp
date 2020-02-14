@@ -28,7 +28,7 @@
 namespace ripple {
 namespace test {
 
-struct Directory_test : public beast::unit_test::suite
+struct Directory_test : public boost::beast::unit_test::suite
 {
     // Map [0-15576] into a a unique 3 letter currency code
     std::string
@@ -443,7 +443,7 @@ struct Directory_test : public beast::unit_test::suite
     }
 };
 
-BEAST_DEFINE_TESTSUITE_PRIO(Directory,ledger,ripple,1);
+BEAST_DEFINE_TESTSUITE(Directory,ledger,ripple);
 
 }
 }

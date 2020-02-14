@@ -1906,7 +1906,7 @@ R"({
 };
 
 
-class JSONRPC_test : public beast::unit_test::suite
+class JSONRPC_test : public boost::beast::unit_test::suite
 {
 public:
     void testBadRpcCommand ()

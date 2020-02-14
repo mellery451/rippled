@@ -26,7 +26,7 @@
 
 namespace ripple {
 
-class TrustAndBalance_test : public beast::unit_test::suite
+class TrustAndBalance_test : public boost::beast::unit_test::suite
 {
     static auto
     ledgerEntryState(
@@ -516,7 +516,7 @@ public:
     }
 };
 
-BEAST_DEFINE_TESTSUITE_PRIO (TrustAndBalance, app, ripple, 1);
+BEAST_DEFINE_TESTSUITE(TrustAndBalance, app, ripple);
 
 }  // ripple
 

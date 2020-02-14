@@ -23,7 +23,7 @@
 
 namespace ripple {
 
-class Version_test : public beast::unit_test::suite
+class Version_test : public boost::beast::unit_test::suite
 {
     void
     testCorrectVersionNumber()

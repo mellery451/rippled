@@ -19,8 +19,6 @@
 
 #include <test/unit_test/multi_runner.h>
 
-#include <beast/unit_test/amount.hpp>
-
 #include <boost/lexical_cast.hpp>
 
 #include <algorithm>
@@ -137,7 +135,7 @@ template <class S>
 void
 results::print(S& s)
 {
-    using namespace beast::unit_test;
+    using namespace boost::beast::unit_test;
 
     if (top.size() > 0)
     {
@@ -424,7 +422,7 @@ multi_runner_parent::multi_runner_parent()
 
 multi_runner_parent::~multi_runner_parent()
 {
-    using namespace beast::unit_test;
+    using namespace boost::beast::unit_test;
 
     continue_message_queue_ = false;
     message_queue_thread_.join();
@@ -501,7 +499,7 @@ multi_runner_child::~multi_runner_child()
 }
 
 void
-multi_runner_child::on_suite_begin(beast::unit_test::suite_info const& info)
+multi_runner_child::on_suite_begin(boost::beast::unit_test::suite_info const& info)
 {
     suite_results_ = detail::suite_results{info.full_name()};
     message_queue_send(MessageType::test_start, suite_results_.name);

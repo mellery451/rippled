@@ -135,7 +135,7 @@ private:
     Config config_;
 
 public:
-    RippledCfgGuard (beast::unit_test::suite& test,
+    RippledCfgGuard (boost::beast::unit_test::suite& test,
         path subDir, path const& dbPath,
             path const& validatorsFile,
                 bool useCounter = true)
@@ -225,7 +225,7 @@ moreripplevalidators.net
 class ValidatorsTxtGuard : public test::detail::FileDirGuard
 {
 public:
-    ValidatorsTxtGuard (beast::unit_test::suite& test,
+    ValidatorsTxtGuard (boost::beast::unit_test::suite& test,
         path subDir, path const& validatorsFileName,
             bool useCounter = true)
         : FileDirGuard (test, std::move (subDir),

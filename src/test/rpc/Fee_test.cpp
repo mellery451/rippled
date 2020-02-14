@@ -34,7 +34,7 @@
 namespace ripple {
 namespace test {
 
-class Fee_test : public beast::unit_test::suite
+class Fee_test : public boost::beast::unit_test::suite
 {
     class GrpcFeeClient : public GRPCTestClientBase
     {

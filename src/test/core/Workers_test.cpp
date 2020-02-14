@@ -83,7 +83,7 @@ class PerfLogTest
 
 //------------------------------------------------------------------------------
 
-class Workers_test : public beast::unit_test::suite
+class Workers_test : public boost::beast::unit_test::suite
 {
 public:
     struct TestCallback : Workers::Callback
@@ -112,7 +112,7 @@ public:
         Workers w(cb, *perfLog, "Test", tc1);
         BEAST_EXPECT(w.getNumberOfThreads() == tc1);
 
-        auto testForThreadCount = [this, &cb, &w] (int const threadCount)
+        auto testForThreadCount = [&cb, &w] (int const threadCount)
         {
             // Prepare the callback.
             cb.count = threadCount;

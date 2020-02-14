@@ -181,7 +181,7 @@ static_assert (sha256_t::bits == 256,
 namespace ripple {
 
 class hardened_hash_test
-    : public beast::unit_test::suite
+    : public boost::beast::unit_test::suite
 {
 public:
     template <class T>

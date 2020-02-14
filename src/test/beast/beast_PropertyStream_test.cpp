@@ -20,7 +20,7 @@ OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
 #include <ripple/beast/utility/PropertyStream.h>
 namespace beast {
 
-class PropertyStream_test : public unit_test::suite
+class PropertyStream_test : public boost::beast::unit_test::suite
 {
 public:
     using Source = PropertyStream::Source;

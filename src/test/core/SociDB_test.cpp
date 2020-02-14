@@ -117,7 +117,7 @@ public:
         std::vector<std::string> const stringData (
             {"String1", "String2", "String3"});
         std::vector<int> const intData ({1, 2, 3});
-        auto checkValues = [this, &stringData, &intData](soci::session& s)
+        auto checkValues = [&stringData, &intData](soci::session& s)
         {
             // Check values in db
             std::vector<std::string> stringResult (20 * stringData.size ());

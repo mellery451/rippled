@@ -29,7 +29,7 @@
 
 namespace ripple {
 
-struct json_value_test : beast::unit_test::suite
+struct json_value_test : boost::beast::unit_test::suite
 {
     void test_StaticString()
     {
@@ -60,7 +60,7 @@ struct json_value_test : beast::unit_test::suite
         // Exercise ValueType constructor
         static constexpr Json::StaticString staticStr {"staticStr"};
 
-        auto testCopy = [this] (Json::ValueType typ)
+        auto testCopy = [] (Json::ValueType typ)
         {
             Json::Value val {typ};
             Json::Value cpy {val};

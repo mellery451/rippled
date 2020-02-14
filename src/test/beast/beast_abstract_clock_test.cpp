@@ -28,7 +28,7 @@
 
 namespace beast {
 
-class abstract_clock_test : public unit_test::suite
+class abstract_clock_test : public boost::beast::unit_test::suite
 {
 public:
     template <class Clock>

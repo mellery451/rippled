@@ -217,7 +217,7 @@ public:
     };
 };
 
-class TheoreticalQuality_test : public beast::unit_test::suite
+class TheoreticalQuality_test : public boost::beast::unit_test::suite
 {
     static std::string
     prettyQuality(Quality const& q)

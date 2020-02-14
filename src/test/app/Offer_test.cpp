@@ -27,7 +27,7 @@
 namespace ripple {
 namespace test {
 
-class Offer_test : public beast::unit_test::suite
+class Offer_test : public boost::beast::unit_test::suite
 {
     XRPAmount reserve(jtx::Env& env, std::uint32_t count)
     {
@@ -4634,8 +4634,8 @@ class Offer_manual_test : public Offer_test
     }
 };
 
-BEAST_DEFINE_TESTSUITE_PRIO (Offer, tx, ripple, 4);
-BEAST_DEFINE_TESTSUITE_MANUAL_PRIO (Offer_manual, tx, ripple, 20);
+BEAST_DEFINE_TESTSUITE(Offer, tx, ripple);
+BEAST_DEFINE_TESTSUITE_MANUAL(Offer_manual, tx, ripple);
 
 }  // test
 }  // ripple

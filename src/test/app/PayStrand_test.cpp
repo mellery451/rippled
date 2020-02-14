@@ -622,7 +622,7 @@ struct ExistingElementPool
     }
 };
 
-struct PayStrand_test : public beast::unit_test::suite
+struct PayStrand_test : public boost::beast::unit_test::suite
 {
     void
     testToStrand(FeatureBitset features)
@@ -646,7 +646,7 @@ struct PayStrand_test : public beast::unit_test::suite
         using B = ripple::Book;
         using XRPS = XRPEndpointStepInfo;
 
-        auto test = [&, this](
+        auto test = [&](
             jtx::Env& env,
             Issue const& deliver,
             boost::optional<Issue> const& sendMaxIssue,

@@ -21,8 +21,7 @@
 #define TEST_UNIT_TEST_MULTI_RUNNER_H
 
 #include <boost/beast/core/static_string.hpp>
-#include <beast/unit_test/global_suites.hpp>
-#include <beast/unit_test/runner.hpp>
+#include <ripple/beast/unit_test.h>
 
 #include <boost/container/static_vector.hpp>
 #include <boost/interprocess/ipc/message_queue.hpp>
@@ -227,7 +226,7 @@ public:
 
 /** A class to run a subset of unit tests
  */
-class multi_runner_child : public beast::unit_test::runner,
+class multi_runner_child : public boost::beast::unit_test::runner,
                            private detail::multi_runner_base</*IsParent*/ false>
 {
 private:
@@ -256,7 +255,7 @@ public:
 
 private:
     virtual void
-    on_suite_begin(beast::unit_test::suite_info const& info) override;
+    on_suite_begin(boost::beast::unit_test::suite_info const& info) override;
 
     virtual void
     on_suite_end() override;
@@ -283,11 +282,11 @@ template <class Pred>
 bool
 multi_runner_child::run_multi(Pred pred)
 {
-    auto const& suite = beast::unit_test::global_suites();
+    auto const& suite = boost::beast::unit_test::global_suites();
     auto const num_tests = suite.size();
     bool failed = false;
 
-    auto get_test = [&]() -> beast::unit_test::suite_info const* {
+    auto get_test = [&]() -> boost::beast::unit_test::suite_info const* {
         auto const cur_test_index = checkout_test_index();
         if (cur_test_index >= num_tests)
             return nullptr;

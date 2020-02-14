@@ -29,7 +29,7 @@
 
 namespace ripple {
 
-class LedgerLoad_test : public beast::unit_test::suite
+class LedgerLoad_test : public boost::beast::unit_test::suite
 {
     auto static ledgerConfig(
         std::unique_ptr<Config> cfg,

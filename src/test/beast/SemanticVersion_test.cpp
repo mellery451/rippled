@@ -20,7 +20,7 @@ OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
 #include <ripple/beast/core/SemanticVersion.h>
 namespace beast {
 
-class SemanticVersion_test : public unit_test::suite
+class SemanticVersion_test : public boost::beast::unit_test::suite
 {
     using identifier_list = SemanticVersion::identifier_list;
 

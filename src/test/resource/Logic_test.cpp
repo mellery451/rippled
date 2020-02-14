@@ -31,7 +31,7 @@
 namespace ripple {
 namespace Resource {
 
-class ResourceManager_test : public beast::unit_test::suite
+class ResourceManager_test : public boost::beast::unit_test::suite
 {
 public:
     class TestLogic

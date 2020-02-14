@@ -29,7 +29,7 @@ namespace ripple {
 
 namespace test {
 
-class Roles_test : public beast::unit_test::suite
+class Roles_test : public boost::beast::unit_test::suite
 {
     void
     testRoles()

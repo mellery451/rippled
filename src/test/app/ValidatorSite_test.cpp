@@ -54,7 +54,7 @@ constexpr const char* realValidatorContents()
 auto constexpr default_expires = std::chrono::seconds{3600};
 }
 
-class ValidatorSite_test : public beast::unit_test::suite
+class ValidatorSite_test : public boost::beast::unit_test::suite
 {
 private:
 

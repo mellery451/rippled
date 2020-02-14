@@ -27,7 +27,7 @@
 namespace ripple {
 namespace test {
 
-class RCLValidations_test : public beast::unit_test::suite
+class RCLValidations_test : public boost::beast::unit_test::suite
 {
 
     void
