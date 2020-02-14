@@ -49,6 +49,6 @@ struct Openssl_test : public boost::beast::unit_test::suite
     };
 };
 
-BEAST_DEFINE_TESTSUITE(Openssl, crypto, ripple);
+BEAST_DEFINE_TESTSUITE(ripple, crypto, Openssl);
 
 }  // namespace ripple

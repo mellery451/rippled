@@ -834,8 +834,8 @@ class GetAmendments_test
     }
 };
 
-BEAST_DEFINE_TESTSUITE(View,ledger,ripple);
-BEAST_DEFINE_TESTSUITE(GetAmendments,ledger,ripple);
+BEAST_DEFINE_TESTSUITE(ripple,ledger,View);
+BEAST_DEFINE_TESTSUITE(ripple,ledger,GetAmendments);
 
 }  // test
 }  // ripple

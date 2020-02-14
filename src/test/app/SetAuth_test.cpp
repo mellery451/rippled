@@ -76,7 +76,7 @@ struct SetAuth_test : public boost::beast::unit_test::suite
     }
 };
 
-BEAST_DEFINE_TESTSUITE(SetAuth,test,ripple);
+BEAST_DEFINE_TESTSUITE(ripple,test,SetAuth);
 
 } // test
 } // ripple

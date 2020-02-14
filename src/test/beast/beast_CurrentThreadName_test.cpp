@@ -81,7 +81,7 @@ public:
     }
 };
 
-BEAST_DEFINE_TESTSUITE(CurrentThreadName,core,beast);
+BEAST_DEFINE_TESTSUITE(beast,core,CurrentThreadName);
 
 } // test
 } // ripple

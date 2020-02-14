@@ -2416,7 +2416,7 @@ public:
     }
 };
 
-BEAST_DEFINE_TESTSUITE(JSONRPC,ripple_app,ripple);
+BEAST_DEFINE_TESTSUITE(ripple,ripple_app,JSONRPC);
 
 } // RPC
 } // ripple

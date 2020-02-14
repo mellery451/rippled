@@ -360,6 +360,6 @@ public:
     }
 };
 
-BEAST_DEFINE_TESTSUITE(SociDB,core,ripple);
+BEAST_DEFINE_TESTSUITE(ripple,core,SociDB);
 
 }  // ripple

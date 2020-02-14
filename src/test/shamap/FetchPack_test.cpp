@@ -165,7 +165,7 @@ public:
     }
 };
 
-BEAST_DEFINE_TESTSUITE(FetchPack,shamap,ripple);
+BEAST_DEFINE_TESTSUITE(ripple,shamap,FetchPack);
 
 } // tests
 } // ripple

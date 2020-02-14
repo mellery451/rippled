@@ -751,7 +751,7 @@ public:
     }
 };
 
-BEAST_DEFINE_TESTSUITE_MANUAL(Timing,NodeStore,ripple);
+BEAST_DEFINE_TESTSUITE_MANUAL(ripple,NodeStore,Timing);
 
 }
 }

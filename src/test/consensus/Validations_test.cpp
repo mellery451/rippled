@@ -1100,7 +1100,7 @@ class Validations_test : public boost::beast::unit_test::suite
     }
 };
 
-BEAST_DEFINE_TESTSUITE(Validations, consensus, ripple);
+BEAST_DEFINE_TESTSUITE(ripple, consensus, Validations);
 }  // namespace csf
 }  // namespace test
 }  // namespace ripple

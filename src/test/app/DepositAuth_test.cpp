@@ -697,8 +697,8 @@ struct DepositPreauth_test : public boost::beast::unit_test::suite
     }
 };
 
-BEAST_DEFINE_TESTSUITE(DepositAuth,app,ripple);
-BEAST_DEFINE_TESTSUITE(DepositPreauth,app,ripple);
+BEAST_DEFINE_TESTSUITE(ripple,app,DepositAuth);
+BEAST_DEFINE_TESTSUITE(ripple,app,DepositPreauth);
 
 } // test
 } // ripple

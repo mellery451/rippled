@@ -256,5 +256,5 @@ public:
     }
 };
 
-BEAST_DEFINE_TESTSUITE(SemanticVersion, beast_core, beast);
+BEAST_DEFINE_TESTSUITE(beast, beast_core, SemanticVersion);
 }

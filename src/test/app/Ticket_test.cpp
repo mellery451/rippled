@@ -391,7 +391,7 @@ public:
     }
 };
 
-BEAST_DEFINE_TESTSUITE (Ticket, tx, ripple);
+BEAST_DEFINE_TESTSUITE (ripple, tx, Ticket);
 
 }  // ripple
 

@@ -91,7 +91,7 @@ public:
     }
 };
 
-BEAST_DEFINE_TESTSUITE(ProtocolVersion,overlay,ripple);
+BEAST_DEFINE_TESTSUITE(ripple,overlay,ProtocolVersion);
 
 }
 

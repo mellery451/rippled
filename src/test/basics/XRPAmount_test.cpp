@@ -324,6 +324,6 @@ public:
     }
 };
 
-BEAST_DEFINE_TESTSUITE(XRPAmount,protocol,ripple);
+BEAST_DEFINE_TESTSUITE(ripple,protocol,XRPAmount);
 
 } // ripple

@@ -872,7 +872,7 @@ public:
     }
 };
 
-BEAST_DEFINE_TESTSUITE(AccountLinesRPC,app,ripple);
+BEAST_DEFINE_TESTSUITE(ripple,app,AccountLinesRPC);
 
 } // RPC
 } // ripple

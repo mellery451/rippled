@@ -1134,6 +1134,6 @@ public:
     }
 };
 
-BEAST_DEFINE_TESTSUITE(Consensus, consensus, ripple);
+BEAST_DEFINE_TESTSUITE(ripple, consensus, Consensus);
 }  // namespace test
 }  // namespace ripple

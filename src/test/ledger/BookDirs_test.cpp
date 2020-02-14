@@ -101,7 +101,7 @@ struct BookDirs_test : public boost::beast::unit_test::suite
     }
 };
 
-BEAST_DEFINE_TESTSUITE(BookDirs,ledger,ripple);
+BEAST_DEFINE_TESTSUITE(ripple,ledger,BookDirs);
 
 } // test
 } // ripple

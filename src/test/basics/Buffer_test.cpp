@@ -284,7 +284,7 @@ struct Buffer_test : boost::beast::unit_test::suite
     }
 };
 
-BEAST_DEFINE_TESTSUITE(Buffer, ripple_basics, ripple);
+BEAST_DEFINE_TESTSUITE(ripple, ripple_basics, Buffer);
 
 }  // namespace test
 }  // namespace ripple

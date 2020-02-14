@@ -275,7 +275,7 @@ public:
     }
 };
 
-BEAST_DEFINE_TESTSUITE(Submit, app, ripple);
+BEAST_DEFINE_TESTSUITE(ripple, app, Submit);
 
 }  // namespace test
 }  // namespace ripple

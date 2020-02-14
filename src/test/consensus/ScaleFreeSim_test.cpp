@@ -116,7 +116,7 @@ class ScaleFreeSim_test : public boost::beast::unit_test::suite
     }
 };
 
-BEAST_DEFINE_TESTSUITE_MANUAL(ScaleFreeSim, consensus, ripple);
+BEAST_DEFINE_TESTSUITE_MANUAL(ripple, consensus, ScaleFreeSim);
 
 }  // namespace test
 }  // namespace ripple

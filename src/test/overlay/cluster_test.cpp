@@ -273,7 +273,7 @@ public:
     }
 };
 
-BEAST_DEFINE_TESTSUITE(cluster,overlay,ripple);
+BEAST_DEFINE_TESTSUITE(ripple,overlay,cluster);
 
 } // tests
 } // ripple

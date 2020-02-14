@@ -1502,7 +1502,7 @@ public:
     }
 };
 
-BEAST_DEFINE_TESTSUITE(LedgerRPC,app,ripple);
+BEAST_DEFINE_TESTSUITE(ripple,app,LedgerRPC);
 
 } // ripple
 

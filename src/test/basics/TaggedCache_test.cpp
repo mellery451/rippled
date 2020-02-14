@@ -149,6 +149,6 @@ public:
     }
 };
 
-BEAST_DEFINE_TESTSUITE(TaggedCache,common,ripple);
+BEAST_DEFINE_TESTSUITE(ripple,common,TaggedCache);
 
 }

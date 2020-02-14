@@ -232,7 +232,7 @@ public:
     }
 };
 
-BEAST_DEFINE_TESTSUITE(tagged_integer,ripple_basics,ripple);
+BEAST_DEFINE_TESTSUITE(ripple,ripple_basics,tagged_integer);
 
 } // test
 } // ripple

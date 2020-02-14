@@ -279,7 +279,7 @@ public:
     }
 };
 
-BEAST_DEFINE_TESTSUITE(ResourceManager,resource,ripple);
+BEAST_DEFINE_TESTSUITE(ripple,resource,ResourceManager);
 
 }
 }

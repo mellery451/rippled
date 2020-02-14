@@ -3106,7 +3106,7 @@ public:
     }
 };
 
-BEAST_DEFINE_TESTSUITE(TxQ,app,ripple);
+BEAST_DEFINE_TESTSUITE(ripple,app,TxQ);
 
 }
 }

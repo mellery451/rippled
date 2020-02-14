@@ -296,7 +296,7 @@ public:
     }
 };
 
-BEAST_DEFINE_TESTSUITE(HashRouter, app, ripple);
+BEAST_DEFINE_TESTSUITE(ripple, app, HashRouter);
 
 }
 }

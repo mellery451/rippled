@@ -82,7 +82,7 @@ public:
     }
 };
 
-BEAST_DEFINE_TESTSUITE(Scheduler, test, ripple);
+BEAST_DEFINE_TESTSUITE(ripple, test, Scheduler);
 
 }  // namespace test
 }  // namespace ripple

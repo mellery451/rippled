@@ -677,7 +677,7 @@ public:
     }
 };
 
-BEAST_DEFINE_TESTSUITE(Subscribe,app,ripple);
+BEAST_DEFINE_TESTSUITE(ripple,app,Subscribe);
 
 } // test
 } // ripple

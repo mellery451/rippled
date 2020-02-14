@@ -460,6 +460,6 @@ public:
     }
 };
 
-BEAST_DEFINE_TESTSUITE(SecretKey,protocol,ripple);
+BEAST_DEFINE_TESTSUITE(ripple,protocol,SecretKey);
 
 } // ripple

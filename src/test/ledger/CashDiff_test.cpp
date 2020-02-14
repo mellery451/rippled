@@ -105,7 +105,7 @@ public:
     }
 };
 
-BEAST_DEFINE_TESTSUITE (CashDiff, ledger, ripple);
+BEAST_DEFINE_TESTSUITE (ripple, ledger, CashDiff);
 
 }  // test
 }  // ripple

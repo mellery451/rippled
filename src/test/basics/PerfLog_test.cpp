@@ -1116,6 +1116,6 @@ public:
     }
 };
 
-BEAST_DEFINE_TESTSUITE(PerfLog, basics, ripple);
+BEAST_DEFINE_TESTSUITE(ripple, basics, PerfLog);
 
 } // namespace ripple

@@ -39,7 +39,7 @@ struct DetectCrash_test : public boost::beast::unit_test::suite
     }
 };
 
-BEAST_DEFINE_TESTSUITE_MANUAL(DetectCrash,unit_test,beast);
+BEAST_DEFINE_TESTSUITE_MANUAL(beast,unit_test,DetectCrash);
 
 } // test
 } // ripple

@@ -277,6 +277,6 @@ public:
     }
 };
 
-BEAST_DEFINE_TESTSUITE(LexicalCast,beast_core,beast);
+BEAST_DEFINE_TESTSUITE(beast,beast_core,LexicalCast);
 
 } // beast

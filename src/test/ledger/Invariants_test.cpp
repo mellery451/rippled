@@ -540,7 +540,7 @@ public:
     }
 };
 
-BEAST_DEFINE_TESTSUITE (Invariants, ledger, ripple);
+BEAST_DEFINE_TESTSUITE (ripple, ledger, Invariants);
 
 }  // ripple
 

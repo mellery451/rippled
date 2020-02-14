@@ -4634,8 +4634,8 @@ class Offer_manual_test : public Offer_test
     }
 };
 
-BEAST_DEFINE_TESTSUITE(Offer, tx, ripple);
-BEAST_DEFINE_TESTSUITE_MANUAL(Offer_manual, tx, ripple);
+BEAST_DEFINE_TESTSUITE(ripple, tx, Offer);
+BEAST_DEFINE_TESTSUITE_MANUAL(ripple, tx, Offer_manual);
 
 }  // test
 }  // ripple

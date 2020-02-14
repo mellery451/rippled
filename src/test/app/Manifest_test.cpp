@@ -912,7 +912,7 @@ public:
     }
 };
 
-BEAST_DEFINE_TESTSUITE(Manifest,app,ripple);
+BEAST_DEFINE_TESTSUITE(ripple,app,Manifest);
 
 } // test
 } // ripple

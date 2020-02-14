@@ -549,7 +549,7 @@ public:
     }
 };
 
-BEAST_DEFINE_TESTSUITE(TheoreticalQuality, app, ripple);
+BEAST_DEFINE_TESTSUITE(ripple, app, TheoreticalQuality);
 
 }  // namespace test
 }  // namespace ripple

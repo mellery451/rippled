@@ -202,7 +202,7 @@ struct base_uint_test : boost::beast::unit_test::suite
     }
 };
 
-BEAST_DEFINE_TESTSUITE(base_uint, ripple_basics, ripple);
+BEAST_DEFINE_TESTSUITE(ripple, ripple_basics, base_uint);
 
 }  // namespace test
 }  // namespace ripple

@@ -482,7 +482,7 @@ public:
     }
 };
 
-BEAST_DEFINE_TESTSUITE(RobustTransaction,app,ripple);
+BEAST_DEFINE_TESTSUITE(ripple,app,RobustTransaction);
 
 } // test
 } // ripple

@@ -62,7 +62,7 @@ public:
     }
 };
 
-BEAST_DEFINE_TESTSUITE_MANUAL(PlumpBook,tx,ripple);
+BEAST_DEFINE_TESTSUITE_MANUAL(ripple,tx,PlumpBook);
 
 //------------------------------------------------------------------------------
 
@@ -77,7 +77,7 @@ public:
     }
 };
 
-BEAST_DEFINE_TESTSUITE(ThinBook, tx, ripple);
+BEAST_DEFINE_TESTSUITE(ripple, tx, ThinBook);
 
 //------------------------------------------------------------------------------
 
@@ -121,7 +121,7 @@ public:
     }
 };
 
-BEAST_DEFINE_TESTSUITE_MANUAL(OversizeMeta,tx,ripple);
+BEAST_DEFINE_TESTSUITE_MANUAL(ripple,tx,OversizeMeta);
 
 //------------------------------------------------------------------------------
 
@@ -189,7 +189,7 @@ public:
     }
 };
 
-BEAST_DEFINE_TESTSUITE_MANUAL(FindOversizeCross,tx,ripple);
+BEAST_DEFINE_TESTSUITE_MANUAL(ripple,tx,FindOversizeCross);
 
 } // test
 } // ripple

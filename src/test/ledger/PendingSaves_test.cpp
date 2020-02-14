@@ -54,7 +54,7 @@ struct PendingSaves_test : public boost::beast::unit_test::suite
     }
 };
 
-BEAST_DEFINE_TESTSUITE(PendingSaves,ledger,ripple);
+BEAST_DEFINE_TESTSUITE(ripple,ledger,PendingSaves);
 
 } // test
 } // ripple

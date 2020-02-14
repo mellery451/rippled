@@ -266,7 +266,7 @@ class DistributedValidators_test : public boost::beast::unit_test::suite
     }
 };
 
-BEAST_DEFINE_TESTSUITE_MANUAL(DistributedValidators, consensus, ripple);
+BEAST_DEFINE_TESTSUITE_MANUAL(ripple, consensus, DistributedValidators);
 
 }  // namespace test
 }  // namespace ripple

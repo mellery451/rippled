@@ -677,6 +677,6 @@ class LedgerTrie_test : public boost::beast::unit_test::suite
     }
 };
 
-BEAST_DEFINE_TESTSUITE(LedgerTrie, consensus, ripple);
+BEAST_DEFINE_TESTSUITE(ripple, consensus, LedgerTrie);
 }  // namespace test
 }  // namespace ripple

@@ -393,7 +393,7 @@ public:
     }
 };
 
-BEAST_DEFINE_TESTSUITE (PaymentSandbox, ledger, ripple);
+BEAST_DEFINE_TESTSUITE (ripple, ledger, PaymentSandbox);
 
 }  // test
 }  // ripple

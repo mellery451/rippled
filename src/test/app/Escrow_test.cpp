@@ -1426,7 +1426,7 @@ struct Escrow_test : public boost::beast::unit_test::suite
     }
 };
 
-BEAST_DEFINE_TESTSUITE(Escrow,app,ripple);
+BEAST_DEFINE_TESTSUITE(ripple,app,Escrow);
 
 } // test
 } // ripple

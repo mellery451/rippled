@@ -335,7 +335,7 @@ public:
     }
 };
 
-BEAST_DEFINE_TESTSUITE(RCLValidations, app, ripple);
+BEAST_DEFINE_TESTSUITE(ripple, app, RCLValidations);
 
 }  // namespace test
 }  // namespace ripple

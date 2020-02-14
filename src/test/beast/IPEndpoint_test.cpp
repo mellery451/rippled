@@ -464,7 +464,7 @@ public:
     }
 };
 
-BEAST_DEFINE_TESTSUITE(IPEndpoint,net,beast);
+BEAST_DEFINE_TESTSUITE(beast,net,IPEndpoint);
 
 }
 }

@@ -199,6 +199,6 @@ public:
     }
 };
 
-BEAST_DEFINE_TESTSUITE(JsonWriter, ripple_basics, ripple);
+BEAST_DEFINE_TESTSUITE(ripple, ripple_basics, JsonWriter);
 
 } // Json

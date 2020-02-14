@@ -58,7 +58,7 @@ public:
     }
 };
 
-BEAST_DEFINE_TESTSUITE(LedgerClosed,app,ripple);
+BEAST_DEFINE_TESTSUITE(ripple,app,LedgerClosed);
 
 }
 

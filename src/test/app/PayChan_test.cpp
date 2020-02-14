@@ -1643,6 +1643,6 @@ struct PayChan_test : public boost::beast::unit_test::suite
     }
 };
 
-BEAST_DEFINE_TESTSUITE (PayChan, app, ripple);
+BEAST_DEFINE_TESTSUITE (ripple, app, PayChan);
 }  // test
 }  // ripple

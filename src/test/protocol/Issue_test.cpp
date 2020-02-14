@@ -488,6 +488,6 @@ public:
     }
 };
 
-BEAST_DEFINE_TESTSUITE(Issue,protocol,ripple);
+BEAST_DEFINE_TESTSUITE(ripple,protocol,Issue);
 
 }

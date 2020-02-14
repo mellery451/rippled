@@ -152,6 +152,6 @@ public:
     }
 };
 
-BEAST_DEFINE_TESTSUITE (Discrepancy, app, ripple);
+BEAST_DEFINE_TESTSUITE (ripple, app, Discrepancy);
 
 } // ripple

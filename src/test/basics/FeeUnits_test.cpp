@@ -352,7 +352,7 @@ public:
     }
 };
 
-BEAST_DEFINE_TESTSUITE(feeunits,ripple_basics,ripple);
+BEAST_DEFINE_TESTSUITE(ripple,ripple_basics,feeunits);
 
 } // test
 } //ripple

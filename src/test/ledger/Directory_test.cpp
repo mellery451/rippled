@@ -443,7 +443,7 @@ struct Directory_test : public boost::beast::unit_test::suite
     }
 };
 
-BEAST_DEFINE_TESTSUITE(Directory,ledger,ripple);
+BEAST_DEFINE_TESTSUITE(ripple,ledger,Directory);
 
 }
 }

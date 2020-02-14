@@ -474,7 +474,7 @@ public:
     }
 };
 
-BEAST_DEFINE_TESTSUITE(ValidatorSite, app, ripple);
+BEAST_DEFINE_TESTSUITE(ripple, app, ValidatorSite);
 
 } // test
 } // ripple

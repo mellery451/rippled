@@ -178,7 +178,7 @@ public:
     }
 };
 
-BEAST_DEFINE_TESTSUITE(Coroutine,core,ripple);
+BEAST_DEFINE_TESTSUITE(ripple,core,Coroutine);
 
 } // test
 } // ripple

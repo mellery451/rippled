@@ -551,5 +551,5 @@ public:
     }
 };
 
-BEAST_DEFINE_TESTSUITE(Freeze, app, ripple);
+BEAST_DEFINE_TESTSUITE(ripple, app, Freeze);
 } // ripple

@@ -274,7 +274,7 @@ public:
     }
 };
 
-BEAST_DEFINE_TESTSUITE(SHAMap,ripple_app,ripple);
+BEAST_DEFINE_TESTSUITE(ripple,ripple_app,SHAMap);
 
 } // tests
 } // ripple

@@ -461,6 +461,6 @@ public:
     }
 };
 
-BEAST_DEFINE_TESTSUITE(LedgerData,app,ripple);
+BEAST_DEFINE_TESTSUITE(ripple,app,LedgerData);
 
 }

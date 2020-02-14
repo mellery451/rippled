@@ -56,6 +56,6 @@ public:
     }
 };
 
-BEAST_DEFINE_TESTSUITE (CryptoPRNG, core, ripple);
+BEAST_DEFINE_TESTSUITE (ripple, core, CryptoPRNG);
 
 }  // ripple

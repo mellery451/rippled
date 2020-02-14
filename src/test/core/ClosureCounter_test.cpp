@@ -322,7 +322,7 @@ public:
     }
 };
 
-BEAST_DEFINE_TESTSUITE(ClosureCounter, core, ripple);
+BEAST_DEFINE_TESTSUITE(ripple, core, ClosureCounter);
 
 } // test
 } // ripple

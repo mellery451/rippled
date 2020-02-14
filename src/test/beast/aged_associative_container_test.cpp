@@ -1978,13 +1978,13 @@ public:
     }
 };
 
-BEAST_DEFINE_TESTSUITE(aged_set,container,beast);
-BEAST_DEFINE_TESTSUITE(aged_map,container,beast);
-BEAST_DEFINE_TESTSUITE(aged_multiset,container,beast);
-BEAST_DEFINE_TESTSUITE(aged_multimap,container,beast);
-BEAST_DEFINE_TESTSUITE(aged_unordered_set,container,beast);
-BEAST_DEFINE_TESTSUITE(aged_unordered_map,container,beast);
-BEAST_DEFINE_TESTSUITE(aged_unordered_multiset,container,beast);
-BEAST_DEFINE_TESTSUITE(aged_unordered_multimap,container,beast);
+BEAST_DEFINE_TESTSUITE(beast,container,aged_set);
+BEAST_DEFINE_TESTSUITE(beast,container,aged_map);
+BEAST_DEFINE_TESTSUITE(beast,container,aged_multiset);
+BEAST_DEFINE_TESTSUITE(beast,container,aged_multimap);
+BEAST_DEFINE_TESTSUITE(beast,container,aged_unordered_set);
+BEAST_DEFINE_TESTSUITE(beast,container,aged_unordered_map);
+BEAST_DEFINE_TESTSUITE(beast,container,aged_unordered_multiset);
+BEAST_DEFINE_TESTSUITE(beast,container,aged_unordered_multimap);
 
 } // namespace beast

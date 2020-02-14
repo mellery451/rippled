@@ -7486,7 +7486,7 @@ public:
     }
 };
 
-BEAST_DEFINE_TESTSUITE(RPCCall,app,ripple);
+BEAST_DEFINE_TESTSUITE(ripple,app,RPCCall);
 
 } // test
 } // ripple

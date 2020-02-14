@@ -62,7 +62,7 @@ public:
     }
 };
 
-BEAST_DEFINE_TESTSUITE(varint,NodeStore,ripple);
+BEAST_DEFINE_TESTSUITE(ripple,NodeStore,varint);
 
 } // test
 } // NodeStore

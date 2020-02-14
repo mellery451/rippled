@@ -252,7 +252,7 @@ struct Regression_test : public boost::beast::unit_test::suite
     }
 };
 
-BEAST_DEFINE_TESTSUITE(Regression,app,ripple);
+BEAST_DEFINE_TESTSUITE(ripple,app,Regression);
 
 } // test
 } // ripple

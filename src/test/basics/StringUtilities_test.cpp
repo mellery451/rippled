@@ -309,6 +309,6 @@ public:
     }
 };
 
-BEAST_DEFINE_TESTSUITE(StringUtilities, ripple_basics, ripple);
+BEAST_DEFINE_TESTSUITE(ripple, ripple_basics, StringUtilities);
 
 } // ripple

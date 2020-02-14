@@ -42,6 +42,6 @@ struct qalloc_test : boost::beast::unit_test::suite
     }
 };
 
-BEAST_DEFINE_TESTSUITE(qalloc, ripple_basics, ripple);
+BEAST_DEFINE_TESTSUITE(ripple, ripple_basics, qalloc);
 
 }  // namespace ripple

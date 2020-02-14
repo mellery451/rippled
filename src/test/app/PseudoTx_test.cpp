@@ -107,7 +107,7 @@ struct PseudoTx_test : public boost::beast::unit_test::suite
     }
 };
 
-BEAST_DEFINE_TESTSUITE(PseudoTx, app, ripple);
+BEAST_DEFINE_TESTSUITE(ripple, app, PseudoTx);
 
 }  // test
 }  // ripple

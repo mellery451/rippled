@@ -1376,6 +1376,6 @@ struct json_value_test : boost::beast::unit_test::suite
     }
 };
 
-BEAST_DEFINE_TESTSUITE(json_value, json, ripple);
+BEAST_DEFINE_TESTSUITE(ripple, json, json_value);
 
 } // ripple

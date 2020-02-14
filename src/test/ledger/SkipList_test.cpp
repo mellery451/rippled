@@ -106,7 +106,7 @@ class SkipList_test : public boost::beast::unit_test::suite
     }
 };
 
-BEAST_DEFINE_TESTSUITE(SkipList,ledger,ripple);
+BEAST_DEFINE_TESTSUITE(ripple,ledger,SkipList);
 
 }  // test
 }  // ripple

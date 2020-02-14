@@ -122,6 +122,6 @@ class LedgerTiming_test : public boost::beast::unit_test::suite
 
 };
 
-BEAST_DEFINE_TESTSUITE(LedgerTiming, consensus, ripple);
+BEAST_DEFINE_TESTSUITE(ripple, consensus, LedgerTiming);
 } // test
 } // ripple

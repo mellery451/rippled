@@ -619,6 +619,6 @@ public:
     }
 };
 
-BEAST_DEFINE_TESTSUITE(STAmount,ripple_data,ripple);
+BEAST_DEFINE_TESTSUITE(ripple,ripple_data,STAmount);
 
 } // ripple

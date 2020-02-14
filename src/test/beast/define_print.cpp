@@ -46,7 +46,7 @@ public:
     }
 };
 
-BEAST_DEFINE_TESTSUITE_MANUAL(print,unit_test,beast);
+BEAST_DEFINE_TESTSUITE_MANUAL(beast,unit_test,print);
 
 } // unit_test
 } // beast

@@ -1318,7 +1318,7 @@ public:
     }
 };
 
-BEAST_DEFINE_TESTSUITE(MultiSign, app, ripple);
+BEAST_DEFINE_TESTSUITE(ripple, app, MultiSign);
 
 } // test
 } // ripple

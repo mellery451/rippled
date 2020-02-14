@@ -309,6 +309,6 @@ public:
     }
 };
 
-BEAST_DEFINE_TESTSUITE(Tx, app, ripple);
+BEAST_DEFINE_TESTSUITE(ripple, app, Tx);
 }  // namespace test
 }  // namespace ripple

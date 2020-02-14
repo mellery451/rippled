@@ -654,6 +654,6 @@ public:
     }
 };
 
-BEAST_DEFINE_TESTSUITE(short_read,overlay,ripple);
+BEAST_DEFINE_TESTSUITE(ripple,overlay,short_read);
 
 }

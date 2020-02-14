@@ -389,6 +389,6 @@ public:
     }
 };
 
-BEAST_DEFINE_TESTSUITE(PublicKey,protocol,ripple);
+BEAST_DEFINE_TESTSUITE(ripple,protocol,PublicKey);
 
 } // ripple

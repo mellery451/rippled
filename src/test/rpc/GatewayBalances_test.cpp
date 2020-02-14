@@ -160,7 +160,7 @@ public:
     }
 };
 
-BEAST_DEFINE_TESTSUITE(GatewayBalances,app,ripple);
+BEAST_DEFINE_TESTSUITE(ripple,app,GatewayBalances);
 
 } // test
 } // ripple

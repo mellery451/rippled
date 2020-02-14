@@ -186,7 +186,7 @@ class PreimageSha256_test : public boost::beast::unit_test::suite
     }
 };
 
-BEAST_DEFINE_TESTSUITE (PreimageSha256, conditions, ripple);
+BEAST_DEFINE_TESTSUITE (ripple, conditions, PreimageSha256);
 
 }
 

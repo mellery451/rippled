@@ -111,7 +111,7 @@ struct Slice_test : boost::beast::unit_test::suite
     }
 };
 
-BEAST_DEFINE_TESTSUITE(Slice, ripple_basics, ripple);
+BEAST_DEFINE_TESTSUITE(ripple, ripple_basics, Slice);
 
 }  // namespace test
 }  // namespace ripple

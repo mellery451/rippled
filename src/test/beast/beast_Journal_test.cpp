@@ -98,6 +98,6 @@ public:
     }
 };
 
-BEAST_DEFINE_TESTSUITE(Journal,utility,beast);
+BEAST_DEFINE_TESTSUITE(beast,utility,Journal);
 
 } // beast

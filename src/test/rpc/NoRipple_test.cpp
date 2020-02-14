@@ -275,7 +275,7 @@ public:
     }
 };
 
-BEAST_DEFINE_TESTSUITE(NoRipple,app,ripple);
+BEAST_DEFINE_TESTSUITE(ripple,app,NoRipple);
 
 } // RPC
 } // ripple

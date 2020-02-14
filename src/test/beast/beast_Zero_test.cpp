@@ -137,6 +137,6 @@ public:
 
 };
 
-BEAST_DEFINE_TESTSUITE(Zero, types, beast);
+BEAST_DEFINE_TESTSUITE(beast, types, Zero);
 
 }

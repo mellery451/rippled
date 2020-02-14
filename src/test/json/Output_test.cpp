@@ -58,6 +58,6 @@ struct Output_test : ripple::test::TestOutputSuite
     }
 };
 
-BEAST_DEFINE_TESTSUITE(Output, ripple_basics, ripple);
+BEAST_DEFINE_TESTSUITE(ripple, ripple_basics, Output);
 
 } // Json

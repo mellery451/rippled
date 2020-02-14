@@ -118,7 +118,7 @@ public:
     }
 };
 
-BEAST_DEFINE_TESTSUITE(DeliverMin,app,ripple);
+BEAST_DEFINE_TESTSUITE(ripple,app,DeliverMin);
 
 } // test
 } // ripple

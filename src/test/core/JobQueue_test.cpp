@@ -147,7 +147,7 @@ public:
     }
 };
 
-BEAST_DEFINE_TESTSUITE(JobQueue, core, ripple);
+BEAST_DEFINE_TESTSUITE(ripple, core, JobQueue);
 
 } // test
 } // ripple

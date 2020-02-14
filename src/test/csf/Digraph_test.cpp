@@ -93,7 +93,7 @@ public:
     }
 };
 
-BEAST_DEFINE_TESTSUITE(Digraph, test, ripple);
+BEAST_DEFINE_TESTSUITE(ripple, test, Digraph);
 
 }  // namespace test
 }  // namespace ripple

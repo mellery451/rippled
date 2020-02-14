@@ -85,7 +85,7 @@ public:
     }
 };
 
-BEAST_DEFINE_TESTSUITE(RPCOverload,app,ripple);
+BEAST_DEFINE_TESTSUITE(ripple,app,RPCOverload);
 
 } // test
 } // ripple

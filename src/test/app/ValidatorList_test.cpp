@@ -1188,7 +1188,7 @@ public:
     }
 };
 
-BEAST_DEFINE_TESTSUITE(ValidatorList, app, ripple);
+BEAST_DEFINE_TESTSUITE(ripple, app, ValidatorList);
 
 } // test
 } // ripple

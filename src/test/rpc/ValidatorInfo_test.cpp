@@ -103,6 +103,6 @@ public:
     }
 };
 
-BEAST_DEFINE_TESTSUITE(ValidatorInfo,rpc,ripple);
+BEAST_DEFINE_TESTSUITE(ripple,rpc,ValidatorInfo);
 }
 }

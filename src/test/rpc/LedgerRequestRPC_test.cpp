@@ -301,7 +301,7 @@ public:
     }
 };
 
-BEAST_DEFINE_TESTSUITE(LedgerRequestRPC,app,ripple);
+BEAST_DEFINE_TESTSUITE(ripple,app,LedgerRequestRPC);
 
 } // RPC
 } // ripple

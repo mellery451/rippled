@@ -1749,7 +1749,7 @@ public:
     }
 };
 
-BEAST_DEFINE_TESTSUITE (Check, tx, ripple);
+BEAST_DEFINE_TESTSUITE (ripple, tx, Check);
 
 }  // ripple
 

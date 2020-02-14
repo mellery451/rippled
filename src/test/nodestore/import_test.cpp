@@ -585,7 +585,7 @@ public:
     }
 };
 
-BEAST_DEFINE_TESTSUITE_MANUAL(import,NodeStore,ripple);
+BEAST_DEFINE_TESTSUITE_MANUAL(ripple,NodeStore,import);
 
 #endif
 

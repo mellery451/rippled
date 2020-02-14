@@ -273,6 +273,6 @@ public:
 
 };
 
-BEAST_DEFINE_TESTSUITE(SSLHTTPDownloader, net, ripple);
+BEAST_DEFINE_TESTSUITE(ripple, net, SSLHTTPDownloader);
 }  // namespace test
 }  // namespace ripple

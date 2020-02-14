@@ -219,6 +219,6 @@ public:
         testModifyQualityOfTrustline(true, true);
     }
 };
-BEAST_DEFINE_TESTSUITE(SetTrust, app, ripple);
+BEAST_DEFINE_TESTSUITE(ripple, app, SetTrust);
 } // test
 } // ripple

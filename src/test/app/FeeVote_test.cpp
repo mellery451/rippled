@@ -98,7 +98,7 @@ class FeeVote_test :
     }
 };
 
-BEAST_DEFINE_TESTSUITE(FeeVote, server, ripple);
+BEAST_DEFINE_TESTSUITE(ripple, server, FeeVote);
 
 } // test
 } // ripple

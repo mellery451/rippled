@@ -74,6 +74,6 @@ public:
     }
 };
 
-BEAST_DEFINE_TESTSUITE(FileUtilities, ripple_basics, ripple);
+BEAST_DEFINE_TESTSUITE(ripple, ripple_basics, FileUtilities);
 
 } // ripple

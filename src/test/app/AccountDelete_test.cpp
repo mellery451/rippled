@@ -783,7 +783,7 @@ public:
     }
 };
 
-BEAST_DEFINE_TESTSUITE(AccountDelete,app,ripple);
+BEAST_DEFINE_TESTSUITE(ripple,app,AccountDelete);
 
 } // test
 } // ripple

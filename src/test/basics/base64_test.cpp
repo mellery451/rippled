@@ -72,6 +72,6 @@ public:
     }
 };
 
-BEAST_DEFINE_TESTSUITE(base64, ripple_basics, ripple);
+BEAST_DEFINE_TESTSUITE(ripple, ripple_basics, base64);
 
 } // ripple

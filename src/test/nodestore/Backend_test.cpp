@@ -119,7 +119,7 @@ public:
     }
 };
 
-BEAST_DEFINE_TESTSUITE(Backend,ripple_core,ripple);
+BEAST_DEFINE_TESTSUITE(ripple,ripple_core,Backend);
 
 }
 }

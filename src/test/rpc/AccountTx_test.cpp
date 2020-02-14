@@ -557,7 +557,7 @@ public:
         testAccountDelete();
     }
 };
-BEAST_DEFINE_TESTSUITE(AccountTx, app, ripple);
+BEAST_DEFINE_TESTSUITE(ripple, app, AccountTx);
 
 }  // namespace test
 }  // namespace ripple

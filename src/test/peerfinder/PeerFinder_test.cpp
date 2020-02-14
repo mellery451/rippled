@@ -163,7 +163,7 @@ public:
     }
 };
 
-BEAST_DEFINE_TESTSUITE(PeerFinder,PeerFinder,ripple);
+BEAST_DEFINE_TESTSUITE(ripple,PeerFinder,PeerFinder);
 
 }
 }

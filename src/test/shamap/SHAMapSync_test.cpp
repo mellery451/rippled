@@ -201,7 +201,7 @@ public:
 
 };
 
-BEAST_DEFINE_TESTSUITE(SHAMapSync,shamap,ripple);
+BEAST_DEFINE_TESTSUITE(ripple,shamap,SHAMapSync);
 
 } // tests
 } // ripple

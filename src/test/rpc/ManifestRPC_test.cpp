@@ -80,6 +80,6 @@ public:
     }
 };
 
-BEAST_DEFINE_TESTSUITE(ManifestRPC,rpc,ripple);
+BEAST_DEFINE_TESTSUITE(ripple,rpc,ManifestRPC);
 }
 }

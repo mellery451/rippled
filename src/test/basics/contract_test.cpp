@@ -56,6 +56,6 @@ public:
     }
 };
 
-BEAST_DEFINE_TESTSUITE(contract,basics,ripple);
+BEAST_DEFINE_TESTSUITE(ripple,basics,contract);
 
 }

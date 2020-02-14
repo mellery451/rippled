@@ -260,6 +260,6 @@ struct TER_test : public boost::beast::unit_test::suite
     }
 };
 
-BEAST_DEFINE_TESTSUITE(TER,protocol,ripple);
+BEAST_DEFINE_TESTSUITE(ripple,protocol,TER);
 
 } //namespace ripple

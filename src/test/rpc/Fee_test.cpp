@@ -137,7 +137,7 @@ public:
     }
 };
 
-BEAST_DEFINE_TESTSUITE(Fee, app, ripple);
+BEAST_DEFINE_TESTSUITE(ripple, app, Fee);
 
 }  // namespace test
 }  // namespace ripple

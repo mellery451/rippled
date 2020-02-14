@@ -94,7 +94,7 @@ public:
     }
 };
 
-BEAST_DEFINE_TESTSUITE(ServerInfo,app,ripple);
+BEAST_DEFINE_TESTSUITE(ripple,app,ServerInfo);
 
 } // test
 } // ripple

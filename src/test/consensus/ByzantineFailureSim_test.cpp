@@ -97,7 +97,7 @@ class ByzantineFailureSim_test : public boost::beast::unit_test::suite
     }
 };
 
-BEAST_DEFINE_TESTSUITE_MANUAL(ByzantineFailureSim, consensus, ripple);
+BEAST_DEFINE_TESTSUITE_MANUAL(ripple, consensus, ByzantineFailureSim);
 
 }  // namespace test
 }  // namespace ripple

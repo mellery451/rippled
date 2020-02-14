@@ -41,6 +41,6 @@ struct types_test : public boost::beast::unit_test::suite
     }
 };
 
-BEAST_DEFINE_TESTSUITE(types,protocol,ripple);
+BEAST_DEFINE_TESTSUITE(ripple,protocol,types);
 
 }

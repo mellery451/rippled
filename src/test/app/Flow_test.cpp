@@ -1238,8 +1238,8 @@ struct Flow_manual_test : public Flow_test
     }
 };
 
-BEAST_DEFINE_TESTSUITE(Flow,app,ripple);
-BEAST_DEFINE_TESTSUITE_MANUAL(Flow_manual,app,ripple);
+BEAST_DEFINE_TESTSUITE(ripple,app,Flow);
+BEAST_DEFINE_TESTSUITE_MANUAL(ripple,app,Flow_manual);
 
 } // test
 } // ripple

@@ -245,7 +245,7 @@ public:
     }
 };
 
-BEAST_DEFINE_TESTSUITE(LedgerHistory, app, ripple);
+BEAST_DEFINE_TESTSUITE(ripple, app, LedgerHistory);
 
 }  // namespace test
 }  // namespace ripple
