@@ -134,8 +134,6 @@ target_include_directories (xrpl_core
   PUBLIC
     $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/src>
     $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/src/ripple>
-    # this one is for beast/legacy files:
-    $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/src/beast/extras>
     $<INSTALL_INTERFACE:include>)
 target_compile_options (xrpl_core
   PUBLIC
@@ -302,7 +300,6 @@ install (
   FILES
     src/ripple/beast/rfc2616.h
     src/ripple/beast/type_name.h
-    src/ripple/beast/unit_test.h
     src/ripple/beast/xor_shift_engine.h
   DESTINATION include/ripple/beast)
 install (
@@ -312,28 +309,6 @@ install (
     src/ripple/beast/utility/Zero.h
     src/ripple/beast/utility/rngfill.h
   DESTINATION include/ripple/beast/utility)
-# WARNING!! -- horrible levelization ahead
-# (these files should be isolated or moved...but
-#  unfortunately unit_test.h above creates this dependency)
-install (
-  FILES
-    src/beast/extras/beast/unit_test/amount.hpp
-    src/beast/extras/beast/unit_test/dstream.hpp
-    src/beast/extras/beast/unit_test/global_suites.hpp
-    src/beast/extras/beast/unit_test/match.hpp
-    src/beast/extras/beast/unit_test/recorder.hpp
-    src/beast/extras/beast/unit_test/reporter.hpp
-    src/beast/extras/beast/unit_test/results.hpp
-    src/beast/extras/beast/unit_test/runner.hpp
-    src/beast/extras/beast/unit_test/suite.hpp
-    src/beast/extras/beast/unit_test/suite_info.hpp
-    src/beast/extras/beast/unit_test/suite_list.hpp
-    src/beast/extras/beast/unit_test/thread.hpp
-  DESTINATION include/beast/unit_test)
-install (
-  FILES
-    src/beast/extras/beast/unit_test/detail/const_container.hpp
-  DESTINATION include/beast/unit_test/detail)
 
 #[===================================================================[
    rippled executable

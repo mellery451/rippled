@@ -86,9 +86,6 @@ option (have_package_container
    use case and most likely you should not be touching this flag." OFF)
 
 # the remaining options are obscure and rarely used
-option (beast_no_unit_test_inline
-  "Prevents unit test definitions from being inserted into global table"
-  OFF)
 # NOTE - THIS OPTION CURRENTLY DOES NOT COMPILE :
 # TODO: fix or remove
 option (verify_nodeobject_keys
